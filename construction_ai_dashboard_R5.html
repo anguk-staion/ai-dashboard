@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>동종사 AI 조직운영 현황 · 8개 건설사 AI협의체</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #121417;
+    --ink-2: #3c424b;
+    --ink-3: #6b7280;
+    --line: #e5e7eb;
+    --line-strong: #cfd3d9;
+    --accent: #0b2545;        /* deep navy */
+    --accent-2: #1d3557;
+    --accent-soft: #eaf0fb;
+    --mint: #14b8a6;
+    --amber: #d97706;
+    --red: #dc2626;
+    --chip-bg: #f0f2f5;
+    --radius: 10px;
+    --shadow-sm: 0 1px 2px rgba(17,24,39,.04), 0 1px 3px rgba(17,24,39,.05);
+    --shadow-md: 0 4px 12px rgba(17,24,39,.06), 0 2px 4px rgba(17,24,39,.04);
+    --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Top Bar ─────────────────────────────── */
+  .topbar {
+    background: var(--accent);
+    color: #fff;
+    border-bottom: 1px solid #091b36;
+  }
+  .topbar-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ffffff 0%, #bcd0ee 100%);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.03em;
+  }
+  .brand-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .brand-sub {
+    font-size: 11.5px;
+    color: #bcd0ee;
+    letter-spacing: 0.02em;
+    margin-top: 1px;
+  }
+  .topbar-actions {
+    display: flex;
+    gap: 6px;
+  }
+  .btn {
+    appearance: none;
+    border: 1px solid transparent;
+    background: transparent;
+    color: inherit;
+    padding: 7px 12px;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 500;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all .15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .btn-ghost-light {
+    color: #d8e3f5;
+    border-color: rgba(255,255,255,.18);
+  }
+  .btn-ghost-light:hover { background: rgba(255,255,255,.1); color: #fff; }
+  .save-state-top {
+    font-size: 11.5px;
+    color: #bcd0ee;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-right: 8px;
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .btn-primary:hover { background: #eaf0fb; }
+
+  /* ── Hero / Title ─────────────────────────────── */
+  .hero {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 28px 28px 18px;
+  }
+  .hero-title {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .hero-title .accent-bar {
+    display: inline-block;
+    width: 4px;
+    height: 22px;
+    background: var(--accent);
+    vertical-align: -3px;
+    margin-right: 10px;
+    border-radius: 2px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    align-items: center;
+    margin-top: 8px;
+    color: var(--ink-3);
+    font-size: 12.5px;
+  }
+  .hero-meta .dot { width: 3px; height: 3px; background: var(--line-strong); border-radius: 50%; }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .status-pill::before {
+    content: '';
+    display: block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* ── Company Tabs ─────────────────────────────── */
+  .company-tabs-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .company-tabs {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .company-tab {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 10px;
+    cursor: pointer;
+    transition: all .18s ease;
+    text-align: center;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .company-tab:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .company-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(11,37,69,.24);
+  }
+  .company-tab-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: inherit;
+  }
+  .company-tab-revenue {
+    font-size: 10.5px;
+    color: var(--ink-3);
+    margin-top: 3px;
+    font-variant-numeric: tabular-nums;
+  }
+  .company-tab.active .company-tab-revenue { color: #bcd0ee; }
+  .company-tab.no-data::after {
+    content: '데이터 없음';
+    position: absolute;
+    top: 6px; right: 6px;
+    font-size: 9px;
+    color: var(--ink-3);
+    background: var(--chip-bg);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .company-tab.active.no-data::after { background: rgba(255,255,255,.15); color: #bcd0ee; }
+
+  /* ── Sub-category Tabs (조직/예산/인프라/중점) ─── */
+  .section-tabs {
+    max-width: 1440px;
+    margin: 22px auto 0;
+    padding: 0 28px;
+    display: flex;
+    gap: 2px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-tab {
+    background: transparent;
+    border: none;
+    padding: 11px 18px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-3);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all .15s ease;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-tab:hover { color: var(--ink); }
+  .section-tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .section-tab-num {
+    display: inline-grid;
+    place-items: center;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--chip-bg);
+    color: var(--ink-3);
+    font-size: 10.5px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .section-tab.active .section-tab-num {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* ── Content Area ─────────────────────────────── */
+  .content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px 28px 80px;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 14px;
+    gap: 16px;
+  }
+  .section-header h2 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .section-header .section-subtitle {
+    color: var(--ink-3);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .section-header .current-company {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .panel {
+    display: none;
+  }
+  .panel.active { display: block; animation: fade .22s ease; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(3px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Card / Grid ─────────────────────────────── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .card + .card { margin-top: 14px; }
+  .card-head {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fafbfc;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title-badge {
+    display: inline-grid;
+    place-items: center;
+    padding: 2px 7px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .card-body {
+    padding: 18px;
+  }
+
+  /* ── Inputs ─────────────────────────────── */
+  .field-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .input, .textarea, .select {
+    width: 100%;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 8px 10px;
+    transition: all .15s ease;
+    letter-spacing: -0.005em;
+  }
+  .input:hover, .textarea:hover, .select:hover {
+    border-color: var(--line-strong);
+  }
+  .input:focus, .textarea:focus, .select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(11,37,69,.12);
+  }
+  .input-num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .textarea {
+    resize: vertical;
+    min-height: 68px;
+    line-height: 1.55;
+  }
+  .input-affix {
+    position: relative;
+  }
+  .input-affix .affix {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-3);
+    font-size: 11.5px;
+    pointer-events: none;
+    font-weight: 500;
+  }
+  .input-affix .input { padding-right: 38px; }
+
+  /* ── Budget panel ─────────────────────────────── */
+  .budget-summary {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .summary-chip {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+    position: relative;
+  }
+  .summary-chip::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    border-radius: 8px 0 0 8px;
+  }
+  .summary-chip.alt::before { background: var(--mint); }
+  .summary-chip.calc::before { background: var(--amber); }
+  .summary-chip-label {
+    font-size: 10.5px;
+    color: var(--ink-3);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin-bottom: 2px;
+  }
+  .summary-chip-value {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .summary-chip-value .unit {
+    font-size: 11px;
+    color: var(--ink-3);
+    font-weight: 500;
+    margin-left: 2px;
+  }
+  .summary-chip.calc .summary-chip-value { color: var(--amber); }
+
+  .budget-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .budget-row {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: center;
+    position: relative;
+  }
+  .budget-row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 10px 0 0 10px;
+  }
+  .budget-row.alt::before { background: var(--mint); }
+  .budget-row.calc::before { background: var(--amber); }
+  .budget-row-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .budget-row-hint {
+    font-size: 11.5px;
+    color: var(--ink-3);
+    margin-top: 3px;
+    font-weight: 500;
+  }
+  .budget-row-value {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .budget-row-value input {
+    width: 200px;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 6px 12px;
+    background: #fdfdfe;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    transition: all .15s;
+  }
+  .budget-row-value input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(11,37,69,.1);
+  }
+  .budget-row-value .unit {
+    font-size: 14px;
+    color: var(--ink-3);
+    font-weight: 600;
+    min-width: 28px;
+  }
+  .budget-row-value .calc-value {
+    width: 200px;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--amber);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    padding: 7px 12px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 7px;
+    display: inline-block;
+  }
+  .budget-row-value .calc-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    background: var(--amber);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 8px;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+  }
+
+  /* ── Infrastructure panel ─────────────────────────────── */
+  .infra-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .infra-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .infra-card-head {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+    background: #fafbfc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .infra-card-head h4 {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .infra-card-head h4 .badge {
+    display: inline-grid;
+    place-items: center;
+    width: 22px; height: 22px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+  }
+  .infra-card-hint {
+    font-size: 11.5px;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .infra-card-body {
+    padding: 14px 18px 16px;
+  }
+  .infra-card textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ink-2);
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.6;
+    background: #fdfdfe;
+    transition: all .15s;
+  }
+  .infra-card textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(11,37,69,.1);
+  }
+
+  .option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .option-row {
+    display: grid;
+    grid-template-columns: 22px 150px 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    background: #fafbfc;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: all .15s ease;
+  }
+  .option-row:hover {
+    border-color: var(--line-strong);
+    background: #f5f7fa;
+  }
+  .option-row.checked {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+  .option-row input[type="checkbox"],
+  .option-row input[type="radio"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    margin: 0;
+  }
+  .option-row .option-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink-2);
+    user-select: none;
+    cursor: pointer;
+    letter-spacing: -0.005em;
+  }
+  .option-row.checked .option-label {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .option-row .option-memo {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-family: inherit;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    background: #fff;
+    transition: all .15s;
+  }
+  .option-row .option-memo:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(11,37,69,.1);
+  }
+  .option-row .option-memo::placeholder {
+    color: #b7bcc4;
+  }
+
+  /* ── Organization panel ─────────────────────────────── */
+  .org-top-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .org-top-row-left {
+    flex: 1;
+    max-width: 480px;
+  }
+
+  .org-total-bar {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .org-total-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .org-total-label {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .org-total-hint {
+    font-size: 11.5px;
+    color: var(--ink-3);
+  }
+  .org-total-sum {
+    font-size: 12px;
+    color: var(--ink-3);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--accent-soft);
+    border-radius: 8px;
+  }
+  .org-total-sum strong {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .org-total-sum span { color: var(--accent); font-weight: 600; }
+
+  .org-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .org-col {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .org-col-head {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    background: #fafbfc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .org-col-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .org-col-title .pill {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .org-col-title .pill.ax { background: #0891b2; }
+  .org-col-title .pill.dx { background: #7c3aed; }
+  .org-col-title .pill.it { background: #475569; }
+  .org-col-sub {
+    font-size: 11px;
+    color: var(--ink-3);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+  .org-total {
+    font-variant-numeric: tabular-nums;
+    font-size: 11px;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+  .org-total strong {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .org-teams {
+    padding: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .org-teams .add-team-btn {
+    grid-column: 1 / -1;
+  }
+  .team-row {
+    background: #fafbfc;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 10px;
+    position: relative;
+  }
+  .team-field-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .team-row-top {
+    display: grid;
+    grid-template-columns: 1fr 78px auto;
+    gap: 6px;
+    align-items: flex-end;
+  }
+  .team-row input.team-name {
+    font-weight: 600;
+    font-size: 13px;
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 5px 7px;
+    border-radius: 5px;
+    color: var(--ink);
+    width: 100%;
+    font-family: inherit;
+    letter-spacing: -0.01em;
+  }
+  .team-row input.team-name:hover { background: #fff; border-color: var(--line); }
+  .team-row input.team-name:focus {
+    background: #fff;
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(11,37,69,.1);
+  }
+  .team-count-wrap {
+    display: flex;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .team-count-wrap input.team-count {
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 5px 4px;
+    color: var(--accent);
+    background: transparent;
+  }
+  .team-count-wrap input.team-count:focus { outline: none; }
+  .team-count-wrap .unit {
+    font-size: 10.5px;
+    color: var(--ink-3);
+    padding: 0 6px 0 2px;
+    user-select: none;
+  }
+  .team-row .remove-team {
+    width: 26px;
+    height: 26px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--ink-3);
+    display: grid;
+    place-items: center;
+    transition: all .15s;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .team-row .remove-team:hover {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: var(--red);
+  }
+  .team-row textarea.team-desc {
+    width: 100%;
+    margin-top: 7px;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--ink-2);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 5px 7px;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 34px;
+    line-height: 1.5;
+  }
+  .team-row textarea.team-desc:hover { background: #fff; border-color: var(--line); }
+  .team-row textarea.team-desc:focus {
+    background: #fff;
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(11,37,69,.1);
+  }
+  .team-row textarea.team-desc::placeholder { color: #b7bcc4; }
+
+  .team-row-affil {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    margin-top: 6px;
+  }
+    font-family: inherit;
+    font-size: 11.5px;
+    color: var(--ink-2);
+    background: #f0f4fa;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 5px 8px;
+    width: 100%;
+    transition: all .15s;
+  }
+  .team-affil-input::placeholder { color: #b7bcc4; font-size: 11px; }
+  .team-affil-input:hover { background: #fff; border-color: var(--line-strong); }
+  .team-affil-input:focus {
+    background: #fff;
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(11,37,69,.08);
+  }
+  .team-affil-input:nth-child(1)::placeholder { color: #7c9cc0; }
+  .team-affil-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .add-team-btn {
+    background: transparent;
+    border: 1px dashed var(--line-strong);
+    border-radius: 7px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-3);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .add-team-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .org-top-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  /* ── Key Initiatives ─────────────────────────────── */
+  .initiatives-wrap {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px;
+  }
+  .initiatives-wrap textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.75;
+    resize: vertical;
+    min-height: 320px;
+    background: #fdfdfe;
+  }
+  .initiatives-wrap textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(11,37,69,.12);
+  }
+  .initiatives-hint {
+    margin-top: 10px;
+    font-size: 11.5px;
+    color: var(--ink-3);
+  }
+
+  /* ── Footer actions / save bar ─────────────────────────────── */
+  .savebar {
+    position: fixed;
+    bottom: 20px;
+    right: 28px;
+    display: flex;
+    gap: 8px;
+    background: var(--surface);
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgba(17,24,39,.1);
+    z-index: 50;
+    align-items: center;
+  }
+  .savebar .save-state {
+    font-size: 11.5px;
+    color: var(--ink-3);
+    padding-right: 4px;
+    min-width: 120px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .save-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--mint);
+    display: inline-block;
+  }
+  .save-dot.saving { background: var(--amber); animation: pulse .9s infinite; }
+  @keyframes pulse { 50% { opacity: .4; } }
+
+  .btn-solid {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .btn-solid:hover { background: var(--accent-2); }
+  .btn-outline {
+    border-color: var(--line);
+    color: var(--ink-2);
+    background: var(--surface);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Empty state ─────────────────────────────── */
+  .empty-state {
+    background: var(--surface);
+    border: 1px dashed var(--line-strong);
+    border-radius: 12px;
+    padding: 60px 28px;
+    text-align: center;
+    color: var(--ink-3);
+  }
+  .empty-state h3 { color: var(--ink); font-size: 16px; margin: 0 0 6px; font-weight: 700; }
+  .empty-state p { margin: 0; font-size: 13px; }
+
+  /* ── Print ─────────────────────────────── */
+  @media print {
+    body { background: #fff; }
+    .topbar, .savebar { display: none; }
+    .company-tabs-wrap, .section-tabs { display: none; }
+    .panel { display: block !important; page-break-after: always; }
+    .panel::before {
+      content: attr(data-print-title);
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--accent);
+    }
+  }
+
+  /* ── Small helpers ─────────────────────────────── */
+  .muted { color: var(--ink-3); font-size: 11.5px; }
+  .row { display: flex; gap: 14px; }
+  .row > * { flex: 1; }
+
+  .no-data-banner {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #92400e;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .no-data-banner::before {
+    content: 'ⓘ';
+    font-weight: 700;
+  }
+
+  @media (max-width: 1200px) {
+    .company-tabs { grid-template-columns: repeat(4, 1fr); }
+    .org-teams { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">AI</div>
+      <div>
+        <div class="brand-title">'26.04.21 동종사 AI 협의체 미팅</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <span class="save-state-top"><span class="save-dot" id="saveDot"></span><span id="saveLabel">자동 저장됨</span></span>
+      <button class="btn btn-ghost-light" onclick="exportExcel()">📊 엑셀 저장</button>
+      <button class="btn btn-primary" onclick="manualSave()">💾 지금 저장</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1 class="hero-title"><span class="accent-bar"></span>AI 조직운영 현황</h1>
+  <div class="hero-meta">
+    <span class="status-pill">편집 가능</span>
+    <span>모든 수정사항은 자동 저장됩니다</span>
+  </div>
+</section>
+
+<!-- Company Tabs -->
+<section class="company-tabs-wrap">
+  <div class="company-tabs" id="companyTabs"></div>
+</section>
+
+<!-- Section Tabs -->
+<nav class="section-tabs" id="sectionTabs">
+  <button class="section-tab active" data-section="organization"><span class="section-tab-num">1</span>조직</button>
+  <button class="section-tab" data-section="budget"><span class="section-tab-num">2</span>예산</button>
+  <button class="section-tab" data-section="infrastructure"><span class="section-tab-num">3</span>인프라</button>
+  <button class="section-tab" data-section="initiatives"><span class="section-tab-num">4</span>중점 추진현황</button>
+</nav>
+
+<!-- Content -->
+<main class="content" id="content"></main>
+
+<!-- Hidden file input for import (kept for JSON import if needed) -->
+<input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(event)" />
+
+<script>
+/* ═════════════════════════════════════════════════════════════
+   Supabase 연동 설정
+   ═════════════════════════════════════════════════════════════ */
+const SUPABASE_URL = 'https://tfkhbjbbpznxuxdxkqux.supabase.co';   // ← 여기에 붙여넣기
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRma2hiamJicHpueHV4ZHhrcXV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NDk0NTcsImV4cCI6MjA5MjIyNTQ1N30.n1p_Cx-m_vkNuy7i4VhyO9-5eq-ypYxD0mifYWUqtKY'; // ← 여기에 붙여넣기
+
+async function saveToSupabase(data) {
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/dashboard_state?id=eq.main`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify({ data, updated_at: new Date().toISOString() })
+    });
+  } catch(e) {
+    console.warn('Supabase 저장 실패:', e);
+  }
+}
+
+async function loadFromSupabase() {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/dashboard_state?id=eq.main&select=data`, {
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`,
+    }
+  });
+  const rows = await res.json();
+  return rows[0]?.data || null;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   Data model & initial values
+   ═════════════════════════════════════════════════════════════ */
+const COMPANIES = [
+  '현대건설',
+  '현대엔지니어링',
+  '삼성물산',
+  '대우건설',
+  '롯데건설',
+  'GS건설',
+  'SK에코플랜트',
+  'DL이앤씨',
+];
+
+const DEFAULT_DATA = {
+  '현대건설': {
+    revenue25: 165125,
+    aiBudget26: 4,
+    aiBudgetPct: 0.002,
+    operationMode: '개별',
+    aiOverallCount: 5,
+    organization: {
+      aiOverall: [
+        { team: 'AI디지털팀', count: 5, desc: 'AI 전략 기획 / 전사 확산·변화 관리 (전략기획사업부 > 워크이노베이션(실급) > AI디지털팀(팀급))' },
+      ],
+      ax: [
+        { team: 'AX플랫폼', count: 3, desc: '사내 AI프로그램 개발 (경영지원본부 > IT지원실 > AX플랫폼)' },
+      ],
+      dx: [
+        { team: 'DX연구팀', count: 5, desc: '건설현장 AI 신기술 PoC (기술연구원 > 건축주거연구실 > DX연구팀)' },
+      ],
+      it: [
+        { team: 'IT지원팀', count: 3, desc: 'MS365, Copilot 등 라이센스 관리 (경영지원본부 > IT지원실 > IT지원팀)' },
+      ],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: true,  memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: false, memo: '' },
+        '기타':      { used: false, memo: '' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: true,  memo: 'HAI' },
+        '그룹사개발 AI': { used: false, memo: '' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: false, memo: '' },
+      },
+      domainAI: '없음',
+      externalBlock: {
+        selected: '차단 예정',
+        memos: { '차단 O': '', '차단 X': '', '차단 예정': '상반기 차단 예정' },
+      },
+      devEnv: '',
+    },
+    initiatives: "'26년 AX 변화관리 초점\n\n▸ 제도 : ACE / AI 공카 (조직 거점별 확산 활동)\n▸ 문화 : PLAY 시리즈",
+  },
+
+  '현대엔지니어링': {
+    revenue25: 102078,
+    aiBudget26: 7.5,
+    aiBudgetPct: 0.007,
+    operationMode: '혼합',
+    aiOverallCount: 8,
+    organization: {
+      aiOverall: [
+        { team: 'AI W/G', count: 8, desc: '미래기술추진단 > 3단당 > AI W/G' },
+      ],
+      ax: [
+        { team: '좌동', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
+      ],
+      dx: [
+        { team: '좌동', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
+      ],
+      it: [
+        { team: 'ICT팀', count: 3, desc: '경영지원본부 > ICT플랫폼실 > ICT팀\nMS Teams Copilot 운영\nMS Teams Copilot Studio 기반 개발 예정' },
+      ],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: true,  memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: false, memo: '' },
+        '기타':      { used: false, memo: '' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: false, memo: '' },
+        '그룹사개발 AI': { used: false, memo: '' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: true,  memo: 'MS Copilot' },
+      },
+      domainAI: '없음',
+      externalBlock: {
+        selected: '차단 O',
+        memos: { '차단 O': '', '차단 X': '', '차단 예정': '' },
+      },
+      devEnv: '',
+    },
+    initiatives: '',
+  },
+
+  '삼성물산': {
+    revenue25: 103425,
+    aiBudget26: null,
+    aiBudgetPct: null,
+    operationMode: '통합',
+    aiOverallCount: 100,
+    organization: {
+      aiOverall: [
+        { team: 'AI혁신본부', count: 100, desc: '전사 AI 컨트롤타워 성격의 AI혁신본부에서 AI 추진 리딩\n(본부 내 데이터 / 시스템 / 변화관리 / 디지털E원 관련 부서 존재)' },
+      ],
+      ax: [
+        { team: 'AIX TF', count: 5, desc: 'AI혁신본부 > AIX TF (사내 개발팀 성격)' },
+      ],
+      dx: [
+        { team: '', count: 0, desc: '' },
+      ],
+      it: [
+        { team: '경영시스템팀', count: 40, desc: 'AI혁신본부 > 경영시스템팀 (사내 시스템 거버넌스)' },
+        { team: '데이터팀', count: 15, desc: 'AI혁신본부 > 데이터팀 (데이터 거버넌스)' },
+      ],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: false, memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: false, memo: '' },
+        '기타':      { used: false, memo: '협업툴 없음 (미사용)' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: false, memo: '' },
+        '그룹사개발 AI': { used: true,  memo: '패브릭스 (그룹사 AI 솔루션)' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: false, memo: '' },
+      },
+      domainAI: 'AI-ITB Reviewer : 방대한 분량의 입찰제안서를 자동으로 분석해 리스크를 신속하게 식별\n\nAI-Contract Manager : 법무/계약 리스크를 최소화하고 전문적인 대응',
+      externalBlock: {
+        selected: '차단 O',
+        memos: { '차단 O': '', '차단 X': '', '차단 예정': '' },
+      },
+      devEnv: '',
+    },
+    initiatives: '',
+  },
+
+  '대우건설': {
+    revenue25: 71685,
+    aiBudget26: 5,
+    aiBudgetPct: 0.007,
+    operationMode: '혼합',
+    aiOverallCount: 7,
+    organization: {
+      aiOverall: [
+        { team: 'AX데이터팀', count: 7, desc: '기술연구원 > AX데이터팀' },
+      ],
+      ax: [
+        { team: '좌동', count: 0, desc: 'AX데이터팀에서 통합 수행' },
+      ],
+      dx: [
+        { team: '좌동', count: 0, desc: 'AX데이터팀에서 통합 수행' },
+      ],
+      it: [
+        { team: '디지털전략팀', count: 3, desc: '전략기획본부 > 디지털전략팀 (라이선스 관리)' },
+        { team: '디지털개발팀', count: 2, desc: '전략기획본부 > 디지털개발팀 (AI 에이전트 운영 개발)' },
+      ],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: true,  memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: false, memo: '' },
+        '기타':      { used: false, memo: '' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: true,  memo: '베로봇' },
+        '그룹사개발 AI': { used: false, memo: '' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: false, memo: '' },
+      },
+      domainAI: '없음',
+      externalBlock: {
+        selected: '차단 예정',
+        memos: { '차단 O': '', '차단 X': '', '차단 예정': '' },
+      },
+      devEnv: '',
+    },
+    initiatives: '',
+  },
+
+  '롯데건설': {
+    revenue25: 79067,
+    aiBudget26: 20,
+    aiBudgetPct: 0.025,
+    operationMode: '혼합',
+    aiOverallCount: 3,
+    organization: {
+      aiOverall: [
+        { team: 'IT지원팀', count: 3, desc: '전략기획부 > IT지원팀 (팀장 외 담당 2인)\n※ 안전관련 AI / 스마트건설 관련 AI 조직 별도 운영' },
+      ],
+      ax: [
+        { team: '좌동', count: 0, desc: 'IT지원팀에서 통합 수행' },
+      ],
+      dx: [
+        { team: '좌동', count: 0, desc: 'IT지원팀에서 통합 수행' },
+      ],
+      it: [
+        { team: '전사 IT 시스템 기획', count: 8, desc: '' },
+      ],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: true,  memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: false, memo: '' },
+        '기타':      { used: false, memo: '' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: false, memo: '' },
+        '그룹사개발 AI': { used: true,  memo: 'Aimember (롯데 이노베이트 개발)' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: false, memo: '' },
+      },
+      domainAI: 'Aimember (롯데 이노베이트 개발)',
+      externalBlock: {
+        selected: '차단 O',
+        memos: { '차단 O': '필요 시 보안부서 승인 하에 해제', '차단 X': '', '차단 예정': '' },
+      },
+      devEnv: '',
+    },
+    initiatives: '',
+  },
+
+  'GS건설': {
+    revenue25: 81002,
+    aiBudget26: null,
+    aiBudgetPct: 0,
+    operationMode: '통합',
+    aiOverallCount: 17,
+    organization: {
+      aiOverall: [
+        { team: 'CDO기획팀', count: 17, desc: 'CDO(본부) 2개 부문, 6개 팀\n> CDO기획팀 (직속팀)' },
+      ],
+      ax: [
+        { team: '플랫폼개발팀', count: 13, desc: 'CDO(본부) > 플랫폼부문(상) > 플랫폼개발팀' },
+        { team: 'TPM TF', count: 13, desc: 'CDO(본부) > 플랫폼부문(상) > TPM TF\n자체개발 AI (토탈 매니지먼트, 공정 툴 관련, 매감 결산)' },
+      ],
+      dx: [
+        { team: 'AI COE', count: 10, desc: 'CDO(본부) > AI COE (직속팀)\nAI 혁신, PoC, 모듈' },
+      ],
+      it: [
+        { team: 'IT관리팀', count: 19, desc: 'CDO(본부) > IT부문(상) > IT관리팀' },
+        { team: 'IT운영팀', count: 18, desc: 'CDO(본부) > IT부문(상) > IT운영팀' },
+      ],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: true,  memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: true,  memo: '' },
+        '기타':      { used: true,  memo: '네이버웍스' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: true,  memo: 'AI챗, 자이보이스(현장용 번역 AI), 챗자이터' },
+        '그룹사개발 AI': { used: true,  memo: '미소 (그룹사 개별 AI)' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: true,  memo: '노션 AI' },
+      },
+      domainAI: '자이벅 (시공·품질)\n세이프티벅 (안전)\n자이플러스 (공정용)',
+      externalBlock: {
+        selected: '차단 O',
+        memos: { '차단 O': '공연 신청 후 사용 가능, 내부자료 가지고 진행하는 건 불가', '차단 X': '', '차단 예정': '' },
+      },
+      devEnv: '',
+    },
+    initiatives: '',
+  },
+
+  'SK에코플랜트': {
+    revenue25: null,
+    aiBudget26: null,
+    aiBudgetPct: null,
+    operationMode: '',
+    aiOverallCount: null,
+    organization: {
+      aiOverall: [{ team: '', count: 0, desc: '' }],
+      ax: [{ team: '', count: 0, desc: '' }],
+      dx: [{ team: '', count: 0, desc: '' }],
+      it: [{ team: '', count: 0, desc: '' }],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: false, memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: false, memo: '' },
+        '기타':      { used: false, memo: '' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: false, memo: '' },
+        '그룹사개발 AI': { used: false, memo: '' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: false, memo: '' },
+      },
+      domainAI: '',
+      externalBlock: { selected: '', memos: { '차단 O': '', '차단 X': '', '차단 예정': '' } },
+      devEnv: '',
+    },
+    initiatives: '',
+  },
+
+  'DL이앤씨': {
+    revenue25: 47501,
+    aiBudget26: null,
+    aiBudgetPct: null,
+    operationMode: '',
+    aiOverallCount: null,
+    organization: {
+      aiOverall: [{ team: '', count: 0, desc: '' }],
+      ax: [{ team: '', count: 0, desc: '' }],
+      dx: [{ team: '', count: 0, desc: '' }],
+      it: [{ team: '', count: 0, desc: '' }],
+    },
+    infrastructure: {
+      collab: {
+        'M365 팀즈':  { used: false, memo: '' },
+        'Slack':     { used: false, memo: '' },
+        'Notion':    { used: false, memo: '' },
+        '기타':      { used: false, memo: '' },
+      },
+      generalAI: {
+        '자체개발 AI':   { used: false, memo: '' },
+        '그룹사개발 AI': { used: false, memo: '' },
+        'ChatGPT':      { used: false, memo: '' },
+        '기타 AI':      { used: false, memo: '' },
+      },
+      domainAI: '',
+      externalBlock: { selected: '', memos: { '차단 O': '', '차단 X': '', '차단 예정': '' } },
+      devEnv: '',
+    },
+    initiatives: '',
+  },
+};
+
+/* ═════════════════════════════════════════════════════════════
+   State & Storage
+   ═════════════════════════════════════════════════════════════ */
+const STORAGE_KEY = 'construction_ai_dashboard_v2';
+let state = structuredClone(DEFAULT_DATA);
+let currentCompany = COMPANIES[0];
+let currentSection = 'organization';
+
+async function loadState() {
+  // 1) Supabase에서 먼저 로드 시도
+  try {
+    const remote = await loadFromSupabase();
+    if (remote && Object.keys(remote).length > 0) {
+      const merged = structuredClone(DEFAULT_DATA);
+      for (const c of COMPANIES) {
+        if (remote[c]) merged[c] = { ...merged[c], ...remote[c] };
+      }
+      return merged;
+    }
+  } catch(e) {
+    console.warn('Supabase 로드 실패, 로컬 사용:', e);
+  }
+  // 2) 실패 시 localStorage 폴백
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return structuredClone(DEFAULT_DATA);
+    const parsed = JSON.parse(raw);
+    const merged = structuredClone(DEFAULT_DATA);
+    for (const c of COMPANIES) {
+      if (parsed[c]) merged[c] = { ...merged[c], ...parsed[c] };
+    }
+    return merged;
+  } catch(e) {
+    console.warn('로컬 로드 실패:', e);
+    return structuredClone(DEFAULT_DATA);
+  }
+}
+
+let saveTimer;
+function scheduleSave() {
+  setSaving(true);
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      saveToSupabase(state); // Supabase에도 저장
+      setSaving(false, true);
+    } catch (e) {
+      alert('저장 실패: ' + e.message);
+      setSaving(false, false);
+    }
+  }, 400);
+}
+
+function manualSave() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    saveToSupabase(state); // Supabase에도 저장
+    flashSave('수동 저장 완료');
+  } catch (e) {
+    alert('저장 실패: ' + e.message);
+  }
+}
+
+function setSaving(isSaving, ok = true) {
+  const dot = document.getElementById('saveDot');
+  const label = document.getElementById('saveLabel');
+  if (isSaving) {
+    dot.classList.add('saving');
+    label.textContent = '저장 중...';
+  } else {
+    dot.classList.remove('saving');
+    label.textContent = ok ? '자동 저장됨' : '저장 오류';
+  }
+}
+
+function flashSave(text) {
+  const label = document.getElementById('saveLabel');
+  const old = label.textContent;
+  label.textContent = text;
+  setTimeout(() => { label.textContent = old; }, 1800);
+}
+
+/* ═════════════════════════════════════════════════════════════
+   Rendering
+   ═════════════════════════════════════════════════════════════ */
+function renderCompanyTabs() {
+  const wrap = document.getElementById('companyTabs');
+  wrap.innerHTML = COMPANIES.map(name => {
+    const d = state[name];
+    const hasData = d && d.revenue25 !== null && d.revenue25 !== undefined && d.revenue25 !== '';
+    const revTxt = hasData ? Number(d.revenue25).toLocaleString() + '억' : '입력 필요';
+    return `
+      <button class="company-tab ${name === currentCompany ? 'active' : ''}"
+              onclick="selectCompany('${name}')">
+        <div class="company-tab-label">${name}</div>
+      </button>
+    `;
+  }).join('');
+}
+
+function renderSectionTabs() {
+  document.querySelectorAll('.section-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.section === currentSection);
+    t.onclick = () => { currentSection = t.dataset.section; renderAll(); };
+  });
+}
+
+function renderContent() {
+  const c = document.getElementById('content');
+  if (currentSection === 'organization')   c.innerHTML = renderOrganization();
+  else if (currentSection === 'budget')    c.innerHTML = renderBudget();
+  else if (currentSection === 'infrastructure') c.innerHTML = renderInfrastructure();
+  else if (currentSection === 'initiatives') c.innerHTML = renderInitiatives();
+  bindInputs();
+}
+
+/* ── Organization ─────────────────────────── */
+function renderOrganization() {
+  const d = state[currentCompany];
+  const org = d.organization;
+  const totalAll =
+    sumCount(org.aiOverall) + sumCount(org.ax) + sumCount(org.dx) + sumCount(org.it);
+
+  const cols = [
+    { key: 'aiOverall', title: 'AI 총괄', pillClass: '', sub: '전사 확산 & 변화 관리 · AI 전략 수립/검증' },
+    { key: 'ax', title: 'AX', pillClass: 'ax', sub: '전사 AI 시스템 개발/운영' },
+    { key: 'dx', title: 'DX', pillClass: 'dx', sub: '현업 디지털 전환 가속화 및 신기술 실증 (PoC)' },
+    { key: 'it', title: 'IT', pillClass: 'it', sub: '인프라 · 라이선스 · 운영' },
+  ];
+
+  const noData = !d.revenue25 && d.organization.aiOverall.every(t => !t.team);
+
+  return `
+    <div class="section-header">
+      <div>
+        <h2>① 조직</h2>
+        <div class="section-subtitle">팀 단위로 구분하여 입력 · 역할 상세 기술</div>
+      </div>
+    </div>
+
+    ${noData ? `<div class="no-data-banner">해당 건설사는 아직 조직 데이터가 입력되지 않았습니다. 자유롭게 입력해주세요.</div>` : ''}
+
+    <!-- ① 운영 방식 + 팀별 합산 한 줄 -->
+    <div class="org-top-row">
+      <div class="org-top-row-left">
+        <label class="field-label" style="margin-bottom:6px;">운영 방식</label>
+        <select class="select" data-bind="operationMode" style="font-weight:600;">
+          <option value="">선택</option>
+          <option value="통합" ${d.operationMode==='통합'?'selected':''}>통합 — AI 관련 단 하나의 조직 아래 통합 운영</option>
+          <option value="개별" ${d.operationMode==='개별'?'selected':''}>개별 — AI 관련 단위를 여러 부서에 나누어서 운영</option>
+          <option value="혼합" ${d.operationMode==='혼합'?'selected':''}>혼합 — 통합 조직이 있으나 일부 개별 운영</option>
+        </select>
+      </div>
+      <div class="org-total-sum">
+        팀별 합산
+        <strong>${totalAll}</strong>
+        <span>명</span>
+      </div>
+    </div>
+
+    <!-- ③ AI총괄 / AX / DX / IT — 세로 배치 -->
+    <div class="org-columns">
+      ${cols.map(col => renderOrgColumn(col, org[col.key])).join('')}
+    </div>
+  `;
+}
+
+function sumCount(arr) {
+  return (arr || []).reduce((s, t) => s + (Number(t.count) || 0), 0);
+}
+
+function renderOrgColumn(col, teams) {
+  const total = sumCount(teams);
+  return `
+    <div class="org-col">
+      <div class="org-col-head">
+        <div class="org-col-title">
+          <span class="pill ${col.pillClass}">${col.title}</span>
+          <span class="org-col-sub">${col.sub}</span>
+        </div>
+        <div class="org-total">합계 <strong>${total}</strong> 명</div>
+      </div>
+      <div class="org-teams" data-cat="${col.key}">
+        ${(teams || []).map((t, i) => renderTeamRow(col.key, i, t)).join('')}
+        <button class="add-team-btn" onclick="addTeam('${col.key}')">＋ 팀 추가</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderTeamRow(catKey, idx, t) {
+  return `
+    <div class="team-row" data-idx="${idx}">
+      <div class="team-row-top">
+        <div>
+          <div class="team-field-label">팀명</div>
+          <input class="team-name" placeholder="예: AI디지털팀"
+                 value="${escapeAttr(t.team || '')}"
+                 data-bind-team="${catKey}.${idx}.team">
+        </div>
+        <div class="team-count-wrap">
+          <input class="team-count" type="number" min="0" step="1" placeholder="0"
+                 value="${t.count ?? ''}"
+                 data-bind-team="${catKey}.${idx}.count">
+          <span class="unit">명</span>
+        </div>
+        <button class="remove-team" onclick="removeTeam('${catKey}', ${idx})" title="팀 삭제">×</button>
+      </div>
+      <div class="team-row-affil">
+        <div>
+          <div class="team-affil-label" style="font-size:9px;color:#7c9cc0;font-weight:700;letter-spacing:.05em;margin-bottom:2px;">본부급</div>
+          <input class="team-affil-input" placeholder="예: 경영지원본부"
+                 value="${escapeAttr(t.dept1 || '')}"
+                 data-bind-team="${catKey}.${idx}.dept1">
+        </div>
+        <div>
+          <div class="team-affil-label" style="font-size:9px;color:#7c9cc0;font-weight:700;letter-spacing:.05em;margin-bottom:2px;">실급</div>
+          <input class="team-affil-input" placeholder="예: IT지원실"
+                 value="${escapeAttr(t.dept2 || '')}"
+                 data-bind-team="${catKey}.${idx}.dept2">
+        </div>
+        <div>
+          <div class="team-affil-label" style="font-size:9px;color:#7c9cc0;font-weight:700;letter-spacing:.05em;margin-bottom:2px;">팀급</div>
+          <input class="team-affil-input" placeholder="예: AI디지털팀"
+                 value="${escapeAttr(t.dept3 || '')}"
+                 data-bind-team="${catKey}.${idx}.dept3">
+        </div>
+      </div>
+      <div class="team-field-label" style="margin-top:7px;">역할</div>
+      <textarea class="team-desc" placeholder="역할 상세 (선택)"
+                data-bind-team="${catKey}.${idx}.desc"
+                rows="2">${escapeText(t.desc || '')}</textarea>
+    </div>
+  `;
+}
+
+/* ── Budget ─────────────────────────── */
+function renderBudget() {
+  const d = state[currentCompany];
+  const pct = calcBudgetPct(d);
+
+  return `
+    <div class="section-header">
+      <div>
+        <h2>② 예산</h2>
+        <div class="section-subtitle">순수 AI 배정 예산 (SaaS 구독료, 자체 AI 프로그램 개발, 클라우드 서버 비용 등)</div>
+      </div>
+    </div>
+
+    <!-- 우측 위 요약 카드 (자동 계산) -->
+    <div class="budget-summary">
+      <div class="summary-chip">
+        <div class="summary-chip-label">'25 누계 매출</div>
+        <div class="summary-chip-value" id="sumRev">${d.revenue25 != null ? Number(d.revenue25).toLocaleString() : '—'}<span class="unit"> 억</span></div>
+      </div>
+      <div class="summary-chip alt">
+        <div class="summary-chip-label">'26 AI 예산</div>
+        <div class="summary-chip-value" id="sumBud">${d.aiBudget26 != null ? Number(d.aiBudget26).toLocaleString() : '—'}<span class="unit"> 억</span></div>
+      </div>
+      <div class="summary-chip calc">
+        <div class="summary-chip-label">예산 비중</div>
+        <div class="summary-chip-value" id="sumPct">${pct != null ? pct.toFixed(3) : '—'}<span class="unit"> %</span></div>
+      </div>
+    </div>
+
+    <!-- 입력 섹션 (세로 배치) -->
+    <div class="budget-rows">
+      <div class="budget-row">
+        <div>
+          <div class="budget-row-label">'25년 누계 매출 (건설 부문)</div>
+          <div class="budget-row-hint">개별 재무제표 기준</div>
+        </div>
+        <div class="budget-row-value">
+          <input type="text" inputmode="numeric" data-numeric="int"
+                 data-bind="revenue25" value="${formatNum(d.revenue25)}" placeholder="0">
+          <span class="unit">억원</span>
+        </div>
+      </div>
+
+      <div class="budget-row alt">
+        <div>
+          <div class="budget-row-label">'26년 AI 관련 예산</div>
+          <div class="budget-row-hint">순수 AI 예산만 집계 (SaaS · 자체 AI 개발 · 클라우드 서버 등)</div>
+        </div>
+        <div class="budget-row-value">
+          <input type="text" inputmode="decimal" data-numeric="decimal"
+                 data-bind="aiBudget26" value="${formatNum(d.aiBudget26)}" placeholder="0">
+          <span class="unit">억원</span>
+        </div>
+      </div>
+
+      <div class="budget-row calc">
+        <div>
+          <div class="budget-row-label">매출 대비 AI 예산 비중</div>
+          <div class="budget-row-hint">
+            <span class="calc-badge">AUTO</span>
+            AI 관련 예산 ÷ 누계 매출 × 100 (자동 계산)
+          </div>
+        </div>
+        <div class="budget-row-value">
+          <span class="calc-value" id="calcPctDisplay">${pct != null ? pct.toFixed(3) : '—'}</span>
+          <span class="unit">%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <div class="card-head"><div class="card-title"><span class="card-title-badge">NOTE</span>예산 메모</div></div>
+      <div class="card-body">
+        <textarea class="textarea" data-bind="budgetMemo" placeholder="예산 관련 추가 설명 · 배경 · 집행 내역 등 자유 기재"
+                  rows="5">${escapeText(d.budgetMemo || '')}</textarea>
+      </div>
+    </div>
+  `;
+}
+
+function calcBudgetPct(d) {
+  const rev = Number(d.revenue25);
+  const bud = Number(d.aiBudget26);
+  if (!rev || rev === 0 || bud == null || isNaN(bud)) return null;
+  return (bud / rev) * 100;
+}
+
+/* ── Infrastructure ─────────────────────────── */
+function renderInfrastructure() {
+  const d = state[currentCompany];
+  const inf = d.infrastructure || {};
+
+  const collabOpts = ['M365 팀즈', 'Slack', 'Notion', '기타'];
+  const generalOpts = ['자체개발 AI', '그룹사개발 AI', 'Copilot (유료)', 'ChatGPT', '기타 AI'];
+  const blockOpts = ['차단 O', '차단 X', '차단 예정'];
+
+  return `
+    <div class="section-header">
+      <div>
+        <h2>③ 인프라</h2>
+        <div class="section-subtitle">각사 업무용 'AI' 현황 (배포범위, 계정수 등)</div>
+      </div>
+    </div>
+
+    <div class="infra-grid">
+
+      <!-- 협업툴 (체크박스) -->
+      <div class="infra-card">
+        <div class="infra-card-head">
+          <h4><span class="badge">C</span>협업툴</h4>
+          <span class="infra-card-hint">사용하는 협업툴에 체크해주세요</span>
+        </div>
+        <div class="infra-card-body">
+          <div class="option-list">
+            ${collabOpts.map(opt => renderCheckOption('collab', opt, (inf.collab?.[opt]) || {})).join('')}
+          </div>
+        </div>
+      </div>
+
+      <!-- 일반 업무 AI (체크박스) -->
+      <div class="infra-card">
+        <div class="infra-card-head">
+          <h4><span class="badge">G</span>일반 업무 AI</h4>
+          <span class="infra-card-hint">사용하는 AI에 체크해주세요</span>
+        </div>
+        <div class="infra-card-body">
+          <div class="option-list">
+            ${generalOpts.map(opt => renderCheckOption('generalAI', opt, (inf.generalAI?.[opt]) || {})).join('')}
+          </div>
+        </div>
+      </div>
+
+      <!-- 핵심 도메인 AI (자유 서술) -->
+      <div class="infra-card">
+        <div class="infra-card-head">
+          <h4><span class="badge">D</span>핵심 도메인 AI</h4>
+          <span class="infra-card-hint">품질 · 안전 · 공정 등 현장 데이터 활용 AI 서비스</span>
+        </div>
+        <div class="infra-card-body">
+          <textarea data-bind-infra="domainAI" placeholder="현장 데이터를 활용해 의사결정에 도움을 주는 자체 개발 AI 서비스를 기재해주세요">${escapeText(inf.domainAI || '')}</textarea>
+        </div>
+      </div>
+
+      <!-- 외부 AI 차단 여부 (라디오) -->
+      <div class="infra-card">
+        <div class="infra-card-head">
+          <h4><span class="badge">E</span>외부 AI 차단 여부</h4>
+          <span class="infra-card-hint">하나를 선택해주세요</span>
+        </div>
+        <div class="infra-card-body">
+          <div class="option-list">
+            ${blockOpts.map(opt => renderRadioOption('externalBlock', opt, inf.externalBlock || {})).join('')}
+          </div>
+        </div>
+      </div>
+
+      <!-- 개발 환경 (자유 서술) -->
+      <div class="infra-card">
+        <div class="infra-card-head">
+          <h4><span class="badge">Dv</span>개발 환경</h4>
+          <span class="infra-card-hint">자체 조직별 서버 제공, IT에서 통합 관리 등</span>
+        </div>
+        <div class="infra-card-body">
+          <textarea data-bind-infra="devEnv" placeholder="개발 환경 · 인프라 · 라이선스 관리 체계 등 자유 기재">${escapeText(inf.devEnv || '')}</textarea>
+        </div>
+      </div>
+
+    </div>
+  `;
+}
+
+function renderCheckOption(catKey, opt, val) {
+  const checked = !!val.used;
+  const memo = val.memo || '';
+  const id = `opt-${catKey}-${optToId(opt)}`;
+  return `
+    <div class="option-row ${checked ? 'checked' : ''}" data-opt-row="${catKey}::${opt}">
+      <input type="checkbox" id="${id}"
+             data-opt-check="${catKey}::${opt}"
+             ${checked ? 'checked' : ''}>
+      <label class="option-label" for="${id}">${opt}</label>
+      <input type="text" class="option-memo"
+             data-opt-memo="${catKey}::${opt}"
+             value="${escapeAttr(memo)}"
+             placeholder="${checked ? '메모 (서비스명 · 특이사항)' : '체크 시 메모 작성 가능'}">
+    </div>
+  `;
+}
+
+function renderRadioOption(catKey, opt, val) {
+  const selected = val.selected === opt;
+  const memo = (val.memos && val.memos[opt]) || '';
+  const id = `opt-${catKey}-${optToId(opt)}`;
+  return `
+    <div class="option-row ${selected ? 'checked' : ''}" data-opt-row="${catKey}::${opt}">
+      <input type="radio" id="${id}" name="${catKey}"
+             data-opt-radio="${catKey}::${opt}"
+             ${selected ? 'checked' : ''}>
+      <label class="option-label" for="${id}">${opt}</label>
+      <input type="text" class="option-memo"
+             data-opt-radio-memo="${catKey}::${opt}"
+             value="${escapeAttr(memo)}"
+             placeholder="${selected ? '메모 (조건 · 특이사항)' : '선택 시 메모 작성 가능'}">
+    </div>
+  `;
+}
+
+function optToId(s) {
+  return s.replace(/\s+/g, '_').replace(/[^\w가-힣]/g, '');
+}
+
+/* ── Initiatives ─────────────────────────── */
+function renderInitiatives() {
+  const d = state[currentCompany];
+  return `
+    <div class="section-header">
+      <div>
+        <h2>④ 중점 추진현황</h2>
+        <div class="section-subtitle">'26년 주요 추진 과제 · 제도 · 문화 · 기술 확산 계획</div>
+      </div>
+    </div>
+    <div class="initiatives-wrap">
+      <textarea data-bind="initiatives"
+                placeholder="예)&#10;'26년 AX 변화관리 초점&#10;▸ 제도 : ACE / AI 공카 (조직 거점별 확산 활동)&#10;▸ 문화 : PLAY 시리즈">${escapeText(d.initiatives || '')}</textarea>
+      <div class="initiatives-hint">Enter 키로 줄바꿈 · 이모지 · 특수 기호 사용 가능합니다.</div>
+    </div>
+  `;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   Binding
+   ═════════════════════════════════════════════════════════════ */
+function bindInputs() {
+  // Simple field bind
+  document.querySelectorAll('[data-bind]').forEach(el => {
+    el.oninput = () => {
+      const key = el.dataset.bind;
+      state[currentCompany][key] = parseValue(el);
+      scheduleSave();
+      if (key === 'revenue25') renderCompanyTabs();
+    };
+    el.onchange = el.oninput;
+
+    // For comma-formatted numeric inputs:
+    // - on focus: strip commas so user can edit naturally
+    // - on blur: re-format with commas
+    if (el.dataset && el.dataset.numeric) {
+      el.onfocus = () => {
+        const n = state[currentCompany][el.dataset.bind];
+        if (n !== null && n !== undefined && n !== '') {
+          el.value = String(n);
+          el.select();
+        }
+      };
+      el.onblur = () => {
+        const key = el.dataset.bind;
+        const n = state[currentCompany][key];
+        el.value = formatNum(n, el.dataset.numeric === 'int' ? 0 : 4);
+      };
+    }
+  });
+
+  // Infra bind
+  document.querySelectorAll('[data-bind-infra]').forEach(el => {
+    el.oninput = () => {
+      const key = el.dataset.bindInfra;
+      if (!state[currentCompany].infrastructure) state[currentCompany].infrastructure = {};
+      state[currentCompany].infrastructure[key] = el.value;
+      scheduleSave();
+    };
+  });
+
+  // Infra checkbox bind
+  document.querySelectorAll('[data-opt-check]').forEach(el => {
+    el.onchange = () => {
+      const [catKey, opt] = el.dataset.optCheck.split('::');
+      if (!state[currentCompany].infrastructure[catKey]) state[currentCompany].infrastructure[catKey] = {};
+      if (!state[currentCompany].infrastructure[catKey][opt]) state[currentCompany].infrastructure[catKey][opt] = {};
+      state[currentCompany].infrastructure[catKey][opt].used = el.checked;
+      // update row style
+      const row = el.closest('[data-opt-row]');
+      if (row) row.classList.toggle('checked', el.checked);
+      scheduleSave();
+    };
+  });
+
+  // Infra checkbox memo bind
+  document.querySelectorAll('[data-opt-memo]').forEach(el => {
+    el.oninput = () => {
+      const [catKey, opt] = el.dataset.optMemo.split('::');
+      if (!state[currentCompany].infrastructure[catKey]) state[currentCompany].infrastructure[catKey] = {};
+      if (!state[currentCompany].infrastructure[catKey][opt]) state[currentCompany].infrastructure[catKey][opt] = {};
+      state[currentCompany].infrastructure[catKey][opt].memo = el.value;
+      scheduleSave();
+    };
+  });
+
+  // Infra radio bind
+  document.querySelectorAll('[data-opt-radio]').forEach(el => {
+    el.onchange = () => {
+      const [catKey, opt] = el.dataset.optRadio.split('::');
+      if (!state[currentCompany].infrastructure[catKey]) state[currentCompany].infrastructure[catKey] = {};
+      state[currentCompany].infrastructure[catKey].selected = opt;
+      // update row styles
+      document.querySelectorAll(`[data-opt-row^="${catKey}::"]`).forEach(row => {
+        row.classList.toggle('checked', row.dataset.optRow === `${catKey}::${opt}`);
+      });
+      scheduleSave();
+    };
+  });
+
+  // Infra radio memo bind
+  document.querySelectorAll('[data-opt-radio-memo]').forEach(el => {
+    el.oninput = () => {
+      const [catKey, opt] = el.dataset.optRadioMemo.split('::');
+      if (!state[currentCompany].infrastructure[catKey]) state[currentCompany].infrastructure[catKey] = {};
+      if (!state[currentCompany].infrastructure[catKey].memos) state[currentCompany].infrastructure[catKey].memos = {};
+      state[currentCompany].infrastructure[catKey].memos[opt] = el.value;
+      scheduleSave();
+    };
+  });
+
+  // Team bind
+  document.querySelectorAll('[data-bind-team]').forEach(el => {
+    el.oninput = () => {
+      const [cat, idx, field] = el.dataset.bindTeam.split('.');
+      const item = state[currentCompany].organization[cat][Number(idx)];
+      if (field === 'count') {
+        item.count = Number(el.value) || 0;
+        // update column total inline
+        const col = el.closest('.org-col');
+        if (col) {
+          const cat2 = col.querySelector('.org-teams').dataset.cat;
+          const total = sumCount(state[currentCompany].organization[cat2]);
+          col.querySelector('.org-total strong').textContent = total;
+        }
+        // update header total
+        const org = state[currentCompany].organization;
+        const totalAll = sumCount(org.aiOverall)+sumCount(org.ax)+sumCount(org.dx)+sumCount(org.it);
+        const hdr = document.querySelector('.section-header strong');
+        if (hdr) hdr.textContent = totalAll + '명';
+      } else if (field === 'dept1' || field === 'dept2' || field === 'dept3') {
+        item[field] = el.value;
+      } else {
+        item[field] = el.value;
+      }
+      scheduleSave();
+    };
+  });
+}
+
+function parseValue(el) {
+  // Comma-formatted numeric input (data-numeric="int" or "decimal")
+  if (el.dataset && el.dataset.numeric) {
+    const cleaned = String(el.value).replace(/,/g, '').trim();
+    if (cleaned === '' || cleaned === '-' || cleaned === '.') return null;
+    const n = Number(cleaned);
+    return isNaN(n) ? null : n;
+  }
+  if (el.type === 'number') {
+    return el.value === '' ? null : Number(el.value);
+  }
+  return el.value;
+}
+
+// Format a number with thousand separators; maxDecimals preserves precision when needed
+function formatNum(v, maxDecimals) {
+  if (v === null || v === undefined || v === '') return '';
+  const n = Number(v);
+  if (isNaN(n)) return '';
+  if (maxDecimals !== undefined) {
+    return n.toLocaleString('en-US', { maximumFractionDigits: maxDecimals });
+  }
+  return n.toLocaleString('en-US', { maximumFractionDigits: 4 });
+}
+
+/* ═════════════════════════════════════════════════════════════
+   Actions
+   ═════════════════════════════════════════════════════════════ */
+function selectCompany(name) {
+  currentCompany = name;
+  renderAll();
+}
+
+function addTeam(catKey) {
+  state[currentCompany].organization[catKey].push({ team: '', count: 0, desc: '' });
+  scheduleSave();
+  renderContent();
+}
+
+function removeTeam(catKey, idx) {
+  const arr = state[currentCompany].organization[catKey];
+  if (arr.length <= 1) {
+    // keep at least one empty row
+    arr[0] = { team: '', count: 0, desc: '' };
+  } else {
+    arr.splice(idx, 1);
+  }
+  scheduleSave();
+  renderContent();
+}
+
+function exportExcel() {
+  // CSV 형태로 만들어서 엑셀로 저장
+  const rows = [];
+  // 헤더
+  rows.push(['건설사', '운영방식', 'AI총괄팀명', 'AI총괄인원', 'AX팀명', 'AX인원', 'DX팀명', 'DX인원', 'IT팀명', 'IT인원', '25매출(억)', '26AI예산(억)', '협업툴', '일반업무AI', '도메인AI', '외부AI차단']);
+
+  for (const name of COMPANIES) {
+    const d = state[name];
+    const org = d.organization || {};
+    const inf = d.infrastructure || {};
+
+    const teamStr = (arr) => (arr||[]).map(t=>t.team).filter(Boolean).join(' / ');
+    const countStr = (arr) => (arr||[]).reduce((s,t)=>s+(Number(t.count)||0),0);
+
+    const collab = Object.entries(inf.collab||{}).filter(([,v])=>v.used).map(([k])=>k).join(', ');
+    const genAI = Object.entries(inf.generalAI||{}).filter(([,v])=>v.used).map(([k,v])=>k+(v.memo?`(${v.memo})`:``) ).join(', ');
+    const block = (inf.externalBlock||{}).selected || '';
+
+    rows.push([
+      name,
+      d.operationMode || '',
+      teamStr(org.aiOverall), countStr(org.aiOverall),
+      teamStr(org.ax), countStr(org.ax),
+      teamStr(org.dx), countStr(org.dx),
+      teamStr(org.it), countStr(org.it),
+      d.revenue25 || '',
+      d.aiBudget26 || '',
+      collab,
+      genAI,
+      inf.domainAI || '',
+      block,
+    ]);
+  }
+
+  // BOM 추가로 한글 깨짐 방지
+  const csv = '\uFEFF' + rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const stamp = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = `AI협의체_동종사현황_${stamp}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  flashSave('엑셀 파일 저장됨');
+}
+
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const stamp = new Date().toISOString().slice(0,16).replace(/[T:]/g, '-');
+  a.href = url;
+  a.download = `AI협의체_동종사현황_${stamp}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  flashSave('JSON 파일 다운로드됨');
+}
+
+function importJSON(evt) {
+  const file = evt.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      if (typeof parsed !== 'object') throw new Error('형식이 올바르지 않습니다.');
+      // merge
+      for (const c of COMPANIES) {
+        if (parsed[c]) state[c] = { ...DEFAULT_DATA[c], ...parsed[c] };
+      }
+      scheduleSave();
+      renderAll();
+      flashSave('불러오기 완료');
+    } catch (err) {
+      alert('불러오기 실패: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+  evt.target.value = '';
+}
+
+function resetAll() {
+  if (!confirm('모든 입력값을 기본값으로 초기화하시겠습니까?\n(저장된 수정사항이 사라집니다.)')) return;
+  state = structuredClone(DEFAULT_DATA);
+  try { localStorage.removeItem(STORAGE_KEY); } catch {}
+  renderAll();
+  flashSave('초기화 완료');
+}
+
+/* ═════════════════════════════════════════════════════════════
+   Helpers
+   ═════════════════════════════════════════════════════════════ */
+function escapeAttr(s) {
+  return String(s).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function escapeText(s) {
+  return String(s).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function renderAll() {
+  renderCompanyTabs();
+  renderSectionTabs();
+  renderContent();
+}
+
+/* Init */
+loadState().then(loaded => {
+  state = loaded;
+  renderAll();
+});
+</script>
+</body>
+</html>
