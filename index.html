@@ -946,25 +946,30 @@
     gap: 5px;
     margin-top: 6px;
   }
+  .team-affil-input {
     font-family: inherit;
     font-size: 11.5px;
     color: var(--ink-2);
-    background: #f0f4fa;
-    border: 1px solid var(--line);
+    background: transparent;
+    border: 1px solid transparent;
     border-radius: 5px;
     padding: 5px 8px;
     width: 100%;
-    transition: all .15s;
+    transition: all .2s;
   }
-  .team-affil-input::placeholder { color: #b7bcc4; font-size: 11px; }
-  .team-affil-input:hover { background: #fff; border-color: var(--line-strong); }
+  .team-affil-input:not(:placeholder-shown) {
+    color: var(--ink-2);
+  }
+  .team-affil-input::placeholder { color: #d1d8e0; font-size: 11px; }
+  .team-affil-input:hover { background: transparent; border-color: transparent; }
   .team-affil-input:focus {
+    color: var(--ink-2);
     background: #fff;
     border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 0 2px rgba(11,37,69,.08);
   }
-  .team-affil-input:nth-child(1)::placeholder { color: #7c9cc0; }
+  .team-affil-input:nth-child(1)::placeholder { color: #d1d8e0; }
   .team-affil-label {
     font-size: 9.5px;
     font-weight: 700;
@@ -1183,8 +1188,8 @@
 /* ═════════════════════════════════════════════════════════════
    Supabase 연동 설정
    ═════════════════════════════════════════════════════════════ */
-const SUPABASE_URL = 'https://tfkhbjbbpznxuxdxkqux.supabase.co';   // ← 여기에 붙여넣기
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRma2hiamJicHpueHV4ZHhrcXV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NDk0NTcsImV4cCI6MjA5MjIyNTQ1N30.n1p_Cx-m_vkNuy7i4VhyO9-5eq-ypYxD0mifYWUqtKY'; // ← 여기에 붙여넣기
+const SUPABASE_URL = 'YOUR_SUPABASE_URL';   // ← 여기에 붙여넣기
+const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY'; // ← 여기에 붙여넣기
 
 async function saveToSupabase(data) {
   try {
@@ -1257,8 +1262,9 @@ const DEFAULT_DATA = {
         '기타':      { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: true,  memo: 'HAI' },
+        '자체개발 AI':   { used: true,  memo: 'HAI(On-premises*자체적으로 보유한 공간에 서버, 저장 장치, 네트워크 장비 등을 직접 설치하고 운영하는 방식)' },
         '그룹사개발 AI': { used: false, memo: '' },
+        'Copilot (유료)': { used: true, memo: '5월 일부지급(약 500개)' },
         'ChatGPT':      { used: false, memo: '' },
         '기타 AI':      { used: false, memo: '' },
       },
@@ -1283,10 +1289,10 @@ const DEFAULT_DATA = {
         { team: 'AI W/G', count: 8, desc: '미래기술추진단 > 3단당 > AI W/G' },
       ],
       ax: [
-        { team: '좌동', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
+        { team: 'AI W/G', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
       ],
       dx: [
-        { team: '좌동', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
+        { team: 'AI W/G', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
       ],
       it: [
         { team: 'ICT팀', count: 3, desc: '경영지원본부 > ICT플랫폼실 > ICT팀\nMS Teams Copilot 운영\nMS Teams Copilot Studio 기반 개발 예정' },
@@ -1302,8 +1308,9 @@ const DEFAULT_DATA = {
       generalAI: {
         '자체개발 AI':   { used: false, memo: '' },
         '그룹사개발 AI': { used: false, memo: '' },
+        'Copilot (유료)': { used: true, memo: '' },
         'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: true,  memo: 'MS Copilot' },
+        '기타 AI':      { used: false, memo: '' },
       },
       domainAI: '없음',
       externalBlock: {
@@ -1346,6 +1353,7 @@ const DEFAULT_DATA = {
       generalAI: {
         '자체개발 AI':   { used: false, memo: '' },
         '그룹사개발 AI': { used: true,  memo: '패브릭스 (그룹사 AI 솔루션)' },
+        'Copilot (유료)': { used: false, memo: '' },
         'ChatGPT':      { used: false, memo: '' },
         '기타 AI':      { used: false, memo: '' },
       },
@@ -1388,8 +1396,9 @@ const DEFAULT_DATA = {
         '기타':      { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: true,  memo: '베로봇' },
+        '자체개발 AI':   { used: true,  memo: '바로답' },
         '그룹사개발 AI': { used: false, memo: '' },
+        'Copilot (유료)': { used: false, memo: '' },
         'ChatGPT':      { used: false, memo: '' },
         '기타 AI':      { used: false, memo: '' },
       },
@@ -1433,6 +1442,7 @@ const DEFAULT_DATA = {
       generalAI: {
         '자체개발 AI':   { used: false, memo: '' },
         '그룹사개발 AI': { used: true,  memo: 'Aimember (롯데 이노베이트 개발)' },
+        'Copilot (유료)': { used: false, memo: '' },
         'ChatGPT':      { used: false, memo: '' },
         '기타 AI':      { used: false, memo: '' },
       },
@@ -1476,12 +1486,13 @@ const DEFAULT_DATA = {
         '기타':      { used: true,  memo: '네이버웍스' },
       },
       generalAI: {
-        '자체개발 AI':   { used: true,  memo: 'AI챗, 자이보이스(현장용 번역 AI), 챗자이터' },
-        '그룹사개발 AI': { used: true,  memo: '미소 (그룹사 개별 AI)' },
-        'ChatGPT':      { used: false, memo: '' },
+        '자체개발 AI':   { used: true,  memo: 'AI랩, 자이보이스(현장용 번역 AI)' },
+        '그룹사개발 AI': { used: true,  memo: '미소' },
+        'Copilot (유료)': { used: false, memo: '' },
+        'ChatGPT':      { used: true,  memo: '' },
         '기타 AI':      { used: true,  memo: '노션 AI' },
       },
-      domainAI: '자이벅 (시공·품질)\n세이프티벅 (안전)\n자이플러스 (공정용)',
+      domainAI: '자이북 (시공·품질)\n세이프티북 (안전)\n자이플러스 (공정률)',
       externalBlock: {
         selected: '차단 O',
         memos: { '차단 O': '공연 신청 후 사용 가능, 내부자료 가지고 진행하는 건 불가', '차단 X': '', '차단 예정': '' },
@@ -1513,6 +1524,7 @@ const DEFAULT_DATA = {
       generalAI: {
         '자체개발 AI':   { used: false, memo: '' },
         '그룹사개발 AI': { used: false, memo: '' },
+        'Copilot (유료)': { used: false, memo: '' },
         'ChatGPT':      { used: false, memo: '' },
         '기타 AI':      { used: false, memo: '' },
       },
@@ -1545,6 +1557,7 @@ const DEFAULT_DATA = {
       generalAI: {
         '자체개발 AI':   { used: false, memo: '' },
         '그룹사개발 AI': { used: false, memo: '' },
+        'Copilot (유료)': { used: false, memo: '' },
         'ChatGPT':      { used: false, memo: '' },
         '기타 AI':      { used: false, memo: '' },
       },
