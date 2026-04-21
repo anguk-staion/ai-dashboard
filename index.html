@@ -605,7 +605,7 @@
     display: inline-grid;
     place-items: center;
     width: 30px; height: 30px;
-    background: var(--accent-soft);
+    background: transparent;
     color: var(--accent);
     border-radius: 5px;
     font-size: 15px;
@@ -647,7 +647,7 @@
   }
   .option-row {
     display: grid;
-    grid-template-columns: 22px 150px 1fr;
+    grid-template-columns: 22px 190px 1fr;
     align-items: center;
     gap: 14px;
     padding: 10px 14px;
@@ -674,7 +674,7 @@
   }
   .option-row .option-label {
     font-weight: 600;
-    font-size: 25px;
+    font-size: 22px;
     color: var(--ink-2);
     user-select: none;
     cursor: pointer;
@@ -690,7 +690,7 @@
     border-radius: 6px;
     padding: 7px 10px;
     font-family: inherit;
-    font-size: 20px;
+    font-size: 23px;
     color: var(--ink-2);
     background: #fff;
     transition: all .15s;
@@ -1896,7 +1896,6 @@ function renderBudget() {
         <div>
           <div class="budget-row-label">매출 대비 AI 예산 비중</div>
           <div class="budget-row-hint">
-            <span class="calc-badge">AUTO</span>
             AI 관련 예산 ÷ 누계 매출 × 100 (자동 계산)
           </div>
         </div>
@@ -1946,7 +1945,7 @@ function renderInfrastructure() {
       <!-- 협업툴 (체크박스) -->
       <div class="infra-card">
         <div class="infra-card-head">
-          <h4><span class="badge">C</span>협업툴</h4>
+          <h4><span class="badge">▶</span>협업툴</h4>
           <span class="infra-card-hint">사용하는 협업툴에 체크해주세요</span>
         </div>
         <div class="infra-card-body">
@@ -1959,7 +1958,7 @@ function renderInfrastructure() {
       <!-- 일반 업무 AI (체크박스) -->
       <div class="infra-card">
         <div class="infra-card-head">
-          <h4><span class="badge">G</span>일반 업무 AI</h4>
+          <h4><span class="badge">▶</span>일반 업무 AI</h4>
           <span class="infra-card-hint">사용하는 AI에 체크해주세요</span>
         </div>
         <div class="infra-card-body">
@@ -1972,7 +1971,7 @@ function renderInfrastructure() {
       <!-- 핵심 도메인 AI (자유 서술) -->
       <div class="infra-card">
         <div class="infra-card-head">
-          <h4><span class="badge">D</span>핵심 도메인 AI</h4>
+          <h4><span class="badge">▶</span>핵심 도메인 AI</h4>
           <span class="infra-card-hint">품질 · 안전 · 공정 등 현장 데이터 활용 AI 서비스</span>
         </div>
         <div class="infra-card-body">
@@ -1983,7 +1982,7 @@ function renderInfrastructure() {
       <!-- 외부 AI 차단 여부 (라디오) -->
       <div class="infra-card">
         <div class="infra-card-head">
-          <h4><span class="badge">E</span>외부 AI 차단 여부</h4>
+          <h4><span class="badge">▶</span>외부 AI 차단 여부</h4>
           <span class="infra-card-hint">하나를 선택해주세요</span>
         </div>
         <div class="infra-card-body">
@@ -1996,7 +1995,7 @@ function renderInfrastructure() {
       <!-- 개발 환경 (자유 서술) -->
       <div class="infra-card">
         <div class="infra-card-head">
-          <h4><span class="badge">Dv</span>개발 환경</h4>
+          <h4><span class="badge">▶</span>개발 환경</h4>
           <span class="infra-card-hint">자체 조직별 서버 제공, IT에서 통합 관리 등</span>
         </div>
         <div class="infra-card-body">
@@ -2021,7 +2020,7 @@ function renderCheckOption(catKey, opt, val) {
       <input type="text" class="option-memo"
              data-opt-memo="${catKey}::${opt}"
              value="${escapeAttr(memo)}"
-             placeholder="${checked ? '메모 (서비스명 · 특이사항)' : '체크 시 메모 작성 가능'}">
+             placeholder="">
     </div>
   `;
 }
@@ -2039,7 +2038,7 @@ function renderRadioOption(catKey, opt, val) {
       <input type="text" class="option-memo"
              data-opt-radio-memo="${catKey}::${opt}"
              value="${escapeAttr(memo)}"
-             placeholder="${selected ? '메모 (조건 · 특이사항)' : '선택 시 메모 작성 가능'}">
+             placeholder="">
     </div>
   `;
 }
@@ -2060,7 +2059,7 @@ function renderInitiatives() {
     </div>
     <div class="initiatives-wrap">
       <textarea data-bind="initiatives"
-                placeholder="예)&#10;'26년 AX 변화관리 초점&#10;▸ 제도 : ACE / AI 공카 (조직 거점별 확산 활동)&#10;▸ 문화 : PLAY 시리즈">${escapeText(d.initiatives || '')}</textarea>
+                placeholder="">${escapeText(d.initiatives || '')}</textarea>
       <div class="initiatives-hint">Enter 키로 줄바꿈 · 이모지 · 특수 기호 사용 가능합니다.</div>
     </div>
   `;
