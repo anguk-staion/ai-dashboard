@@ -7,6 +7,12 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
 <style>
+  @font-face {
+    font-family: 'Pretendard Variable';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-display: swap;
+  }
   :root {
     --bg: #f5f6f8;
     --surface: #ffffff;
@@ -25,8 +31,8 @@
     --radius: 10px;
     --shadow-sm: 0 1px 2px rgba(17,24,39,.04), 0 1px 3px rgba(17,24,39,.05);
     --shadow-md: 0 4px 12px rgba(17,24,39,.06), 0 2px 4px rgba(17,24,39,.04);
-    --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    --font-mono: 'Pretendard Variable', Pretendard, ui-monospace, monospace;
   }
 
   * { box-sizing: border-box; }
@@ -35,8 +41,8 @@
     font-family: var(--font-sans);
     background: var(--bg);
     color: var(--ink);
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 25px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
   }
@@ -74,7 +80,7 @@
     letter-spacing: -0.03em;
   }
   .brand-title {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
@@ -133,7 +139,7 @@
     padding: 28px 28px 18px;
   }
   .hero-title {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.035em;
     margin: 0;
@@ -249,9 +255,9 @@
   .section-tab {
     background: transparent;
     border: none;
-    padding: 11px 18px;
+    padding: 13px 22px;
     font-family: inherit;
-    font-size: 13.5px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--ink-3);
     cursor: pointer;
@@ -299,15 +305,15 @@
   }
   .section-header h2 {
     margin: 0;
-    font-size: 17px;
+    font-size: 30px;
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--ink);
   }
   .section-header .section-subtitle {
     color: var(--ink-3);
-    font-size: 12px;
-    margin-top: 2px;
+    font-size: 18px;
+    margin-top: 4px;
   }
   .section-header .current-company {
     color: var(--accent);
@@ -339,7 +345,7 @@
     background: #fafbfc;
   }
   .card-title {
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--ink);
     letter-spacing: -0.01em;
@@ -364,23 +370,23 @@
 
   /* ── Inputs ─────────────────────────────── */
   .field-label {
-    font-size: 11.5px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--ink-3);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     display: block;
   }
   .input, .textarea, .select {
     width: 100%;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 25px;
     color: var(--ink);
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 7px;
-    padding: 8px 10px;
+    padding: 10px 14px;
     transition: all .15s ease;
     letter-spacing: -0.005em;
   }
@@ -444,15 +450,15 @@
   .summary-chip.alt::before { background: var(--mint); }
   .summary-chip.calc::before { background: var(--amber); }
   .summary-chip-label {
-    font-size: 10.5px;
+    font-size: 16px;
     color: var(--ink-3);
     font-weight: 600;
     letter-spacing: -0.005em;
     margin-bottom: 2px;
   }
   .summary-chip-value {
-    font-family: var(--font-mono);
-    font-size: 16px;
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    font-size: 26px;
     font-weight: 800;
     color: var(--ink);
     font-variant-numeric: tabular-nums;
@@ -493,15 +499,15 @@
   .budget-row.alt::before { background: var(--mint); }
   .budget-row.calc::before { background: var(--amber); }
   .budget-row-label {
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--ink);
     letter-spacing: -0.01em;
   }
   .budget-row-hint {
-    font-size: 11.5px;
+    font-size: 17px;
     color: var(--ink-3);
-    margin-top: 3px;
+    margin-top: 4px;
     font-weight: 500;
   }
   .budget-row-value {
@@ -511,7 +517,7 @@
   }
   .budget-row-value input {
     width: 200px;
-    font-family: var(--font-mono);
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: var(--ink);
@@ -538,7 +544,7 @@
   }
   .budget-row-value .calc-value {
     width: 200px;
-    font-family: var(--font-mono);
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
     font-size: 24px;
     font-weight: 800;
     color: var(--amber);
@@ -587,7 +593,7 @@
   }
   .infra-card-head h4 {
     margin: 0;
-    font-size: 13.5px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--ink);
     letter-spacing: -0.01em;
@@ -598,15 +604,15 @@
   .infra-card-head h4 .badge {
     display: inline-grid;
     place-items: center;
-    width: 22px; height: 22px;
+    width: 30px; height: 30px;
     background: var(--accent-soft);
     color: var(--accent);
     border-radius: 5px;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 800;
   }
   .infra-card-hint {
-    font-size: 11.5px;
+    font-size: 17px;
     color: var(--ink-3);
     font-weight: 500;
   }
@@ -617,12 +623,12 @@
     width: 100%;
     border: 1px solid var(--line);
     border-radius: 7px;
-    padding: 10px 12px;
+    padding: 12px 14px;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 25px;
     color: var(--ink-2);
     resize: vertical;
-    min-height: 80px;
+    min-height: 90px;
     line-height: 1.6;
     background: #fdfdfe;
     transition: all .15s;
@@ -668,7 +674,7 @@
   }
   .option-row .option-label {
     font-weight: 600;
-    font-size: 13px;
+    font-size: 25px;
     color: var(--ink-2);
     user-select: none;
     cursor: pointer;
@@ -684,7 +690,7 @@
     border-radius: 6px;
     padding: 7px 10px;
     font-family: inherit;
-    font-size: 12.5px;
+    font-size: 20px;
     color: var(--ink-2);
     background: #fff;
     transition: all .15s;
@@ -734,16 +740,16 @@
   }
   .org-total-label {
     font-weight: 700;
-    font-size: 13px;
+    font-size: 22px;
     color: var(--ink);
     letter-spacing: -0.01em;
   }
   .org-total-hint {
-    font-size: 11.5px;
+    font-size: 18px;
     color: var(--ink-3);
   }
   .org-total-sum {
-    font-size: 12px;
+    font-size: 18px;
     color: var(--ink-3);
     font-weight: 500;
     display: inline-flex;
@@ -754,8 +760,8 @@
     border-radius: 8px;
   }
   .org-total-sum strong {
-    font-family: var(--font-mono);
-    font-size: 22px;
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    font-size: 30px;
     font-weight: 800;
     color: var(--accent);
     letter-spacing: -0.02em;
@@ -786,15 +792,15 @@
   }
   .org-col-title {
     font-weight: 700;
-    font-size: 13px;
+    font-size: 22px;
     color: var(--ink);
     display: flex;
     align-items: center;
     gap: 8px;
   }
   .org-col-title .pill {
-    font-size: 10px;
-    padding: 3px 8px;
+    font-size: 14px;
+    padding: 4px 10px;
     border-radius: 4px;
     background: var(--accent);
     color: #fff;
@@ -805,20 +811,20 @@
   .org-col-title .pill.dx { background: #7c3aed; }
   .org-col-title .pill.it { background: #475569; }
   .org-col-sub {
-    font-size: 11px;
+    font-size: 18px;
     color: var(--ink-3);
     font-weight: 400;
     margin-left: 6px;
   }
   .org-total {
     font-variant-numeric: tabular-nums;
-    font-size: 11px;
+    font-size: 18px;
     color: var(--ink-3);
     font-weight: 600;
   }
   .org-total strong {
     color: var(--accent);
-    font-size: 13px;
+    font-size: 22px;
     font-weight: 800;
   }
   .org-teams {
@@ -838,7 +844,7 @@
     position: relative;
   }
   .team-field-label {
-    font-size: 9.5px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--ink-3);
     letter-spacing: 0.05em;
@@ -853,7 +859,7 @@
   }
   .team-row input.team-name {
     font-weight: 600;
-    font-size: 13px;
+    font-size: 25px;
     border: 1px solid transparent;
     background: transparent;
     padding: 5px 7px;
@@ -882,17 +888,17 @@
     width: 100%;
     border: none;
     text-align: center;
-    font-family: var(--font-mono);
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
     font-variant-numeric: tabular-nums;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 22px;
     padding: 5px 4px;
     color: var(--accent);
     background: transparent;
   }
   .team-count-wrap input.team-count:focus { outline: none; }
   .team-count-wrap .unit {
-    font-size: 10.5px;
+    font-size: 16px;
     color: var(--ink-3);
     padding: 0 6px 0 2px;
     user-select: none;
@@ -921,14 +927,14 @@
     width: 100%;
     margin-top: 7px;
     font-family: inherit;
-    font-size: 12px;
+    font-size: 20px;
     color: var(--ink-2);
     background: transparent;
     border: 1px solid transparent;
     padding: 5px 7px;
     border-radius: 5px;
     resize: vertical;
-    min-height: 34px;
+    min-height: 44px;
     line-height: 1.5;
   }
   .team-row textarea.team-desc:hover { background: #fff; border-color: var(--line); }
@@ -948,7 +954,7 @@
   }
   .team-affil-input {
     font-family: inherit;
-    font-size: 11.5px;
+    font-size: 20px;
     color: var(--ink-2);
     background: transparent;
     border: 1px solid transparent;
@@ -960,7 +966,7 @@
   .team-affil-input:not(:placeholder-shown) {
     color: var(--ink-2);
   }
-  .team-affil-input::placeholder { color: #d1d8e0; font-size: 11px; }
+  .team-affil-input::placeholder { color: #d1d8e0; font-size: 18px; }
   .team-affil-input:hover { background: transparent; border-color: transparent; }
   .team-affil-input:focus {
     color: var(--ink-2);
@@ -971,7 +977,7 @@
   }
   .team-affil-input:nth-child(1)::placeholder { color: #d1d8e0; }
   .team-affil-label {
-    font-size: 9.5px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--ink-3);
     letter-spacing: 0.05em;
@@ -979,13 +985,31 @@
     margin-bottom: 3px;
   }
 
+  .custom-select-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .custom-select-wrap .select {
+    width: auto;
+    min-width: 160px;
+    flex-shrink: 0;
+  }
+  .custom-select-desc {
+    font-size: 21px;
+    color: var(--ink-3);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
   .add-team-btn {
     background: transparent;
     border: 1px dashed var(--line-strong);
     border-radius: 7px;
-    padding: 8px;
+    padding: 10px;
     font-family: inherit;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--ink-3);
     cursor: pointer;
@@ -1014,9 +1038,9 @@
     width: 100%;
     border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 14px 16px;
+    padding: 16px 18px;
     font-family: inherit;
-    font-size: 13.5px;
+    font-size: 25px;
     color: var(--ink);
     line-height: 1.75;
     resize: vertical;
@@ -1031,7 +1055,7 @@
   }
   .initiatives-hint {
     margin-top: 10px;
-    font-size: 11.5px;
+    font-size: 18px;
     color: var(--ink-3);
   }
 
@@ -1716,12 +1740,19 @@ function renderOrganization() {
     <div class="org-top-row">
       <div class="org-top-row-left">
         <label class="field-label" style="margin-bottom:6px;">운영 방식</label>
-        <select class="select" data-bind="operationMode" style="font-weight:600;">
-          <option value="">선택</option>
-          <option value="통합" ${d.operationMode==='통합'?'selected':''}>통합 — AI 관련 단 하나의 조직 아래 통합 운영</option>
-          <option value="개별" ${d.operationMode==='개별'?'selected':''}>개별 — AI 관련 단위를 여러 부서에 나누어서 운영</option>
-          <option value="혼합" ${d.operationMode==='혼합'?'selected':''}>혼합 — 통합 조직이 있으나 일부 개별 운영</option>
-        </select>
+        <div class="custom-select-wrap">
+          <select class="select" data-bind="operationMode" style="font-weight:700; font-size:25px;">
+            <option value="">선택</option>
+            <option value="통합" ${d.operationMode==='통합'?'selected':''}>통합</option>
+            <option value="개별" ${d.operationMode==='개별'?'selected':''}>개별</option>
+            <option value="혼합" ${d.operationMode==='혼합'?'selected':''}>혼합</option>
+          </select>
+          <span class="custom-select-desc">${
+            d.operationMode==='통합' ? 'AI 관련 단 하나의 조직 아래 통합 운영' :
+            d.operationMode==='개별' ? 'AI 관련 단위를 여러 부서에 나누어서 운영' :
+            d.operationMode==='혼합' ? '통합 조직이 있으나 일부 개별 운영' : ''
+          }</span>
+        </div>
       </div>
       <div class="org-total-sum">
         팀별 합산
@@ -2046,6 +2077,13 @@ function bindInputs() {
       state[currentCompany][key] = parseValue(el);
       scheduleSave();
       if (key === 'revenue25') renderCompanyTabs();
+      if (key === 'operationMode') {
+        const desc = el.closest('.custom-select-wrap')?.querySelector('.custom-select-desc');
+        if (desc) {
+          const map = { '통합': 'AI 관련 단 하나의 조직 아래 통합 운영', '개별': 'AI 관련 단위를 여러 부서에 나누어서 운영', '혼합': '통합 조직이 있으나 일부 개별 운영' };
+          desc.textContent = map[el.value] || '';
+        }
+      }
     };
     el.onchange = el.oninput;
 
