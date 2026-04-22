@@ -1159,6 +1159,145 @@
     .company-tabs { grid-template-columns: repeat(4, 1fr); }
     .org-teams { grid-template-columns: 1fr; }
   }
+
+  /* ── 태블릿 ─────────────────────────────── */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+
+    .topbar-inner { padding: 10px 16px; flex-wrap: wrap; gap: 10px; }
+    .brand-title { font-size: 14px; }
+    .topbar-actions { gap: 4px; }
+    .btn { font-size: 11px; padding: 6px 9px; }
+    .save-state-top { display: none; }
+
+    .hero { padding: 16px 16px 10px; }
+    .hero-title { font-size: 22px; }
+
+    .company-tabs-wrap { padding: 0 16px; }
+    .company-tabs { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .company-tab { padding: 10px 6px; }
+    .company-tab-label { font-size: 12px; }
+
+    .section-tabs { padding: 0 16px; overflow-x: auto; white-space: nowrap; }
+    .section-tab { font-size: 13px; padding: 10px 14px; }
+
+    .content { padding: 16px 16px 80px; }
+    .section-header h2 { font-size: 20px; }
+    .section-header .section-subtitle { font-size: 13px; }
+
+    .org-top-row { flex-direction: column; gap: 10px; padding: 12px 14px; }
+    .org-top-row-left { max-width: 100%; }
+    .custom-select-wrap { flex-wrap: wrap; gap: 6px; }
+    .custom-select-desc { white-space: normal; font-size: 14px; }
+    .org-total-sum { font-size: 14px; }
+    .org-total-sum strong { font-size: 22px; }
+
+    .org-col-title { font-size: 16px; flex-wrap: wrap; gap: 4px; }
+    .org-col-sub { font-size: 13px; }
+    .org-total { font-size: 14px; }
+    .org-total strong { font-size: 16px; }
+
+    .org-teams { grid-template-columns: 1fr; padding: 10px; }
+    .team-row input.team-name { font-size: 16px; }
+    .team-count-wrap input.team-count { font-size: 16px; }
+    .team-row textarea.team-desc { font-size: 14px; }
+
+    /* 본부급/실급/팀급 — 세로 배치 */
+    .team-row-affil { grid-template-columns: 1fr; gap: 4px; }
+    .team-affil-input {
+      font-size: 13px;
+      background: #fafbfc;
+      border: 1px solid var(--line) !important;
+      border-radius: 5px;
+      padding: 5px 8px;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .team-affil-label { font-size: 10px; }
+
+    .budget-summary { flex-wrap: wrap; gap: 8px; }
+    .summary-chip { min-width: 90px; padding: 7px 12px; }
+    .summary-chip-label { font-size: 11px; }
+    .summary-chip-value { font-size: 20px; }
+
+    .budget-row { grid-template-columns: 1fr; gap: 10px; padding: 14px 16px; }
+    .budget-row-value { justify-content: flex-end; }
+    .budget-row-value input { width: 150px; font-size: 18px; }
+    .budget-row-label { font-size: 16px; }
+    .budget-row-hint { font-size: 13px; }
+    .budget-row-value .calc-value { width: 150px; font-size: 18px; }
+
+    .infra-card-head h4 { font-size: 16px; }
+    .infra-card-hint { font-size: 13px; }
+    .infra-card textarea { font-size: 16px; }
+    .option-row { grid-template-columns: 22px 130px 1fr; gap: 8px; padding: 8px 10px; }
+    .option-row .option-label { font-size: 14px; }
+    .option-row .option-memo { font-size: 13px; }
+
+    .initiatives-wrap textarea { font-size: 16px; min-height: 200px; }
+
+    .input, .textarea, .select { font-size: 16px; }
+    .savebar { right: 16px; bottom: 16px; padding: 8px 10px; }
+    .card-title { font-size: 15px; }
+  }
+
+  /* ── 모바일 ─────────────────────────────── */
+  @media (max-width: 480px) {
+    body { font-size: 15px; }
+
+    .topbar-inner { padding: 8px 12px; }
+    .brand-title { font-size: 13px; }
+    .btn { font-size: 10px; padding: 5px 8px; gap: 3px; }
+
+    .hero { padding: 12px 12px 8px; }
+    .hero-title { font-size: 18px; }
+
+    .company-tabs-wrap { padding: 0 12px; }
+    .company-tabs { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+    .company-tab { padding: 8px 4px; border-radius: 7px; }
+    .company-tab-label { font-size: 11px; letter-spacing: -0.03em; }
+
+    .section-tabs { padding: 0 12px; margin-top: 14px; }
+    .section-tab { font-size: 12px; padding: 8px 10px; }
+    .section-tab-num { width: 15px; height: 15px; font-size: 9px; }
+
+    .content { padding: 12px 12px 80px; }
+    .section-header h2 { font-size: 18px; }
+
+    .org-col-head { padding: 10px 12px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .org-col-title .pill { font-size: 11px; padding: 3px 8px; }
+    .org-col-sub { display: none; }
+
+    /* 운영방식 설명 줄바꿈 */
+    .custom-select-wrap { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .custom-select-desc { white-space: normal; font-size: 13px; word-break: keep-all; }
+
+    /* 팀명/인원 행 */
+    .team-row-top { grid-template-columns: 1fr 70px auto; }
+
+    /* 본부급/실급/팀급 — 모바일에서 세로 배치 */
+    .team-row-affil { grid-template-columns: 1fr; gap: 3px; }
+    .team-affil-input {
+      font-size: 13px;
+      background: #fafbfc !important;
+      border: 1px solid var(--line) !important;
+      padding: 5px 8px;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* 인프라 옵션 행 */
+    .option-row { grid-template-columns: 20px 1fr; gap: 6px; }
+    .option-row .option-memo { grid-column: 1 / -1; }
+
+    .budget-summary { justify-content: flex-start; }
+    .summary-chip { min-width: 80px; }
+
+    .savebar { left: 12px; right: 12px; bottom: 12px; border-radius: 10px; }
+    .savebar .save-state { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -1183,10 +1322,7 @@
 <!-- Hero -->
 <section class="hero">
   <h1 class="hero-title"><span class="accent-bar"></span>AI 조직운영 현황</h1>
-  <div class="hero-meta">
-    <span class="status-pill">편집 가능</span>
-    <span>모든 수정사항은 자동 저장됩니다</span>
-  </div>
+  <div class="hero-meta"></div>
 </section>
 
 <!-- Company Tabs -->
@@ -1212,12 +1348,12 @@
 /* ═════════════════════════════════════════════════════════════
    Supabase 연동 설정
    ═════════════════════════════════════════════════════════════ */
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';   // ← 여기에 붙여넣기
-const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY'; // ← 여기에 붙여넣기
+const SUPABASE_URL = 'https://tfkhbjbbpznxuxdxkqux.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRma2hiamJicHpueHV4ZHhrcXV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NDk0NTcsImV4cCI6MjA5MjIyNTQ1N30.n1p_Cx-m_vkNuy7i4VhyO9-5eq-ypYxD0mifYWUqtKY';
 
 async function saveToSupabase(data) {
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/dashboard_state?id=eq.main`, {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/dashboard_state?id=eq.main`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -1227,8 +1363,9 @@ async function saveToSupabase(data) {
       },
       body: JSON.stringify({ data, updated_at: new Date().toISOString() })
     });
+    if (!res.ok) console.warn('Supabase 저장 실패:', res.status);
   } catch(e) {
-    console.warn('Supabase 저장 실패:', e);
+    console.warn('Supabase 저장 오류:', e);
   }
 }
 
@@ -1266,40 +1403,40 @@ const DEFAULT_DATA = {
     aiOverallCount: 5,
     organization: {
       aiOverall: [
-        { team: 'AI디지털팀', count: 5, desc: 'AI 전략 기획 / 전사 확산·변화 관리 (전략기획사업부 > 워크이노베이션(실급) > AI디지털팀(팀급))' },
+        { team: 'AI디자인랩', count: 5, dept1: '전략기획사업부', dept2: '워크이노베이션', dept3: 'AI디자인랩', desc: 'AI 전략 기획 / 전사 확산·변화 관리' },
       ],
       ax: [
-        { team: 'AX플랫폼', count: 3, desc: '사내 AI프로그램 개발 (경영지원본부 > IT지원실 > AX플랫폼)' },
+        { team: 'AX플랫폼', count: 3, dept1: '경영지원본부', dept2: 'IT지원실', dept3: 'AX플랫폼', desc: '사내 AI프로그램 개발' },
       ],
       dx: [
-        { team: 'DX연구팀', count: 5, desc: '건설현장 AI 신기술 PoC (기술연구원 > 건축주거연구실 > DX연구팀)' },
+        { team: 'DX연구팀', count: 3, dept1: '기술연구원', dept2: '건축주거연구실', dept3: 'DX연구팀', desc: '건설현장 AI 신기술 PoC' },
       ],
       it: [
-        { team: 'IT지원팀', count: 3, desc: 'MS365, Copilot 등 라이센스 관리 (경영지원본부 > IT지원실 > IT지원팀)' },
+        { team: 'IT지원팀', count: 5, dept1: '경영지원본부', dept2: 'IT지원실', dept3: 'IT지원팀', desc: 'MS365, Copilot 등 라이센스 관리' },
       ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: true,  memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: false, memo: '' },
-        '기타':      { used: false, memo: '' },
+        'M365 팀즈': { used: true, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: false, memo: '' },
+        '기타': { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: true,  memo: 'HAI(On-premises*자체적으로 보유한 공간에 서버, 저장 장치, 네트워크 장비 등을 직접 설치하고 운영하는 방식)' },
+        '자체개발 AI': { used: true, memo: 'HAI(On-premises)' },
         '그룹사개발 AI': { used: false, memo: '' },
         'Copilot (유료)': { used: true, memo: '5월 일부지급(약 500개)' },
-        'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: false, memo: '' },
+        'ChatGPT': { used: false, memo: '' },
+        '기타 AI': { used: false, memo: '' },
       },
       domainAI: '없음',
       externalBlock: {
         selected: '차단 예정',
         memos: { '차단 O': '', '차단 X': '', '차단 예정': '상반기 차단 예정' },
       },
-      devEnv: '',
+      devEnv: '보안 관련 제한, 시민개발자들이 개발하려 해도 프로그램 설치가 다 막혀 있어 어려움.',
     },
-    initiatives: "'26년 AX 변화관리 초점\n\n▸ 제도 : ACE / AI 공카 (조직 거점별 확산 활동)\n▸ 문화 : PLAY 시리즈",
+    initiatives: '■ \'26년 AX 변화관리 초점\n▸ 제도 : ACE / AI 링커 (조직 거점별 확산 활동) AI를 업무에 적용하고 본부 내 과제 발굴 역할.\n▸ 문화 : 웹툰·음악·대시보드 만들기 등 소규모 AI 체험 이벤트',
   },
 
   '현대엔지니어링': {
@@ -1310,85 +1447,87 @@ const DEFAULT_DATA = {
     aiOverallCount: 8,
     organization: {
       aiOverall: [
-        { team: 'AI W/G', count: 8, desc: '미래기술추진단 > 3단당 > AI W/G' },
+        { team: 'AI W/G', count: 8, dept1: '미래기술추진단(3단당)', dept2: '', dept3: 'AI W/G(WorkGroup)', desc: '' },
       ],
       ax: [
-        { team: 'AI W/G', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
+        { team: 'AI W/G', count: 0, dept1: '', dept2: '', dept3: '', desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
       ],
       dx: [
-        { team: 'AI W/G', count: 0, desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
+        { team: 'AI W/G', count: 0, dept1: '', dept2: '', dept3: '', desc: 'AI 총괄 조직(AI W/G)에서 통합 수행' },
       ],
       it: [
-        { team: 'ICT팀', count: 3, desc: '경영지원본부 > ICT플랫폼실 > ICT팀\nMS Teams Copilot 운영\nMS Teams Copilot Studio 기반 개발 예정' },
+        { team: 'ICT팀', count: 3, dept1: '경영지원본부', dept2: 'ICT플랫폼실', dept3: 'ICT팀', desc: '전사 MS 라이선스·팀즈 등 인프라 담당\nMS Teams Copilot 운영' },
       ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: true,  memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: false, memo: '' },
-        '기타':      { used: false, memo: '' },
+        'M365 팀즈': { used: true, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: false, memo: '' },
+        '기타': { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: false, memo: '' },
-        '그룹사개발 AI': { used: false, memo: '' },
+        '자체개발 AI': { used: false, memo: '' },
+        '그룹사개발 AI': { used: true, memo: 'Hchat(외부 API 가능한 그룹 전용 플랫폼)' },
         'Copilot (유료)': { used: true, memo: '' },
-        'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: false, memo: '' },
+        'ChatGPT': { used: false, memo: '' },
+        '기타 AI': { used: false, memo: '' },
       },
-      domainAI: '없음',
+      domainAI: 'P&ID 자동인식, ITB(입찰요청서)',
       externalBlock: {
         selected: '차단 O',
         memos: { '차단 O': '', '차단 X': '', '차단 예정': '' },
       },
-      devEnv: '',
+      devEnv: '자체 GPU 보유. AWS활용해서 개발은 하고있으나 보안문제\n그룹사 Hchat 활용 검토중(외부 API연결 환경 구축 가능)',
     },
-    initiatives: '',
+    initiatives: '■ 내부 개발\n- RAG, VISION, 하도급법 챗봇, Playground 플랫폼 도입, P&ID, ITB',
   },
 
   '삼성물산': {
     revenue25: 103425,
-    aiBudget26: null,
+    aiBudget26: 100,
     aiBudgetPct: null,
     operationMode: '통합',
-    aiOverallCount: 100,
+    aiOverallCount: 5,
+    budgetMemo: 'IT예산 포함되어 관리, 100억 내외',
     organization: {
       aiOverall: [
-        { team: 'AI혁신본부', count: 100, desc: '전사 AI 컨트롤타워 성격의 AI혁신본부에서 AI 추진 리딩\n(본부 내 데이터 / 시스템 / 변화관리 / 디지털E원 관련 부서 존재)' },
+        { team: 'AI혁신기획', count: 5, dept1: 'AI혁신본부', dept2: '', dept3: 'AI혁신기획', desc: '교육, 예산, 과제 관리, 전략 총괄' },
       ],
       ax: [
-        { team: 'AIX TF', count: 5, desc: 'AI혁신본부 > AIX TF (사내 개발팀 성격)' },
+        { team: 'AX개발그룹', count: 5, dept1: 'AI혁신본부', dept2: '', dept3: 'AX개발그룹', desc: '사내 개발팀 성격' },
+        { team: 'PI팀', count: 20, dept1: 'AI혁신본부', dept2: '', dept3: 'PI(Process Innovation)', desc: 'AI 솔루션을 현업에 녹이는 방법 고민' },
       ],
       dx: [
-        { team: '', count: 0, desc: '' },
+        { team: '디지털트윈', count: 15, dept1: 'AI혁신본부', dept2: '', dept3: '디지털트윈팀', desc: '' },
       ],
       it: [
-        { team: '경영시스템팀', count: 40, desc: 'AI혁신본부 > 경영시스템팀 (사내 시스템 거버넌스)' },
-        { team: '데이터팀', count: 15, desc: 'AI혁신본부 > 데이터팀 (데이터 거버넌스)' },
+        { team: '경영시스템팀', count: 40, dept1: 'AI혁신본부', dept2: '', dept3: '경영시스템팀', desc: '사내 시스템 거버넌스\n(기존 레거시 IT 시스템 운영관리)' },
+        { team: '데이터팀', count: 20, dept1: 'AI혁신본부', dept2: '', dept3: '데이터팀', desc: '데이터 거버넌스, 과제 PM역할' },
       ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: false, memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: false, memo: '' },
-        '기타':      { used: false, memo: '협업툴 없음 (미사용)' },
+        'M365 팀즈': { used: false, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: false, memo: '' },
+        '기타': { used: false, memo: '협업툴 없음 (미사용)' },
       },
       generalAI: {
-        '자체개발 AI':   { used: false, memo: '' },
-        '그룹사개발 AI': { used: true,  memo: '패브릭스 (그룹사 AI 솔루션)' },
+        '자체개발 AI': { used: false, memo: '' },
+        '그룹사개발 AI': { used: true, memo: '패브릭스 (그룹사 AI 솔루션)' },
         'Copilot (유료)': { used: false, memo: '' },
-        'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: false, memo: '' },
+        'ChatGPT': { used: false, memo: '' },
+        '기타 AI': { used: false, memo: '' },
       },
-      domainAI: 'AI-ITB Reviewer : 방대한 분량의 입찰제안서를 자동으로 분석해 리스크를 신속하게 식별\n\nAI-Contract Manager : 법무/계약 리스크를 최소화하고 전문적인 대응',
+      domainAI: 'AI-ITB Reviewer : 방대한 분량의 입찰제안서를 자동으로 분석해 리스크를 신속하게 식별\nAI-Contract Manager : 법무/계약 리스크를 최소화하고 전문적인 대응',
       externalBlock: {
         selected: '차단 O',
-        memos: { '차단 O': '', '차단 X': '', '차단 예정': '' },
+        memos: { '차단 O': 'ChatGPT, 노션, 슬랙 등 외부 툴 사용 불가.', '차단 X': '', '차단 예정': '' },
       },
-      devEnv: '',
+      devEnv: 'SCP(Samsung Cloud Platform), AWS 멀티 클라우드 활용.',
     },
-    initiatives: '',
+    initiatives: '■ 인하우스 개발 체계 전환: 작년까지 외주 중심 → 올해부터 자체 개발 방점.\n■ 사내 환경에서 다양한 API를 끌어다 쓸 수 있는 플랫폼 + 플레이그라운드 통합, 사내 데이터 중앙화\n■ AI 교육 체계: 전직원(AI 리터러시) / AI 서포터즈(개발-현업 연결) / 전문 인력(도메인 AI 개발) 3단계.\n■ 외부 업체(대학 산학협력 포함)와 커리큘럼 별도 마련.\n■ 과제 관리: 아이디어 70점 이상 통과, 현재 관리 중인 과제 약 6개. 데이터 보유 여부를 1차 스크리닝 기준으로 사용.',
   },
 
   '대우건설': {
@@ -1399,41 +1538,41 @@ const DEFAULT_DATA = {
     aiOverallCount: 7,
     organization: {
       aiOverall: [
-        { team: 'AX데이터팀', count: 7, desc: '기술연구원 > AX데이터팀' },
+        { team: 'AX데이터팀', count: 7, dept1: '기술연구원', dept2: '', dept3: 'AX데이터팀', desc: '기획, 개발' },
       ],
       ax: [
-        { team: '좌동', count: 0, desc: 'AX데이터팀에서 통합 수행' },
+        { team: 'AX데이터팀', count: 0, dept1: '', dept2: '', dept3: '', desc: 'AX데이터팀에서 통합 수행' },
       ],
       dx: [
-        { team: '좌동', count: 0, desc: 'AX데이터팀에서 통합 수행' },
+        { team: 'AX데이터팀', count: 0, dept1: '', dept2: '', dept3: '', desc: 'AX데이터팀에서 통합 수행' },
       ],
       it: [
-        { team: '디지털전략팀', count: 3, desc: '전략기획본부 > 디지털전략팀 (라이선스 관리)' },
-        { team: '디지털개발팀', count: 2, desc: '전략기획본부 > 디지털개발팀 (AI 에이전트 운영 개발)' },
+        { team: '디지털전략팀', count: 2, dept1: '전략기획본부', dept2: '', dept3: '디지털전략팀', desc: '라이선스 관리( 클라우드, 팀즈)' },
+        { team: '디지털개발팀', count: 3, dept1: '전략기획본부', dept2: '', dept3: '디지털개발팀', desc: 'AI 에이전트 운영 개발' },
       ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: true,  memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: false, memo: '' },
-        '기타':      { used: false, memo: '' },
+        'M365 팀즈': { used: true, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: false, memo: '' },
+        '기타': { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: true,  memo: '바로답' },
+        '자체개발 AI': { used: true, memo: '바로답(외부 API 연동, 온프레미스). 외부 솔루션·서비스 미사용. 모든 프레임워크·플랫폼 자체 개발' },
         '그룹사개발 AI': { used: false, memo: '' },
         'Copilot (유료)': { used: false, memo: '' },
-        'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: false, memo: '' },
+        'ChatGPT': { used: false, memo: '' },
+        '기타 AI': { used: false, memo: '' },
       },
       domainAI: '없음',
       externalBlock: {
         selected: '차단 예정',
-        memos: { '차단 O': '', '차단 X': '', '차단 예정': '' },
+        memos: { '차단 O': '', '차단 X': '', '차단 예정': '7월 예정' },
       },
-      devEnv: '',
+      devEnv: '-개발은 AX 데이터팀 전담\n(시민개발자 육성 반대 입장, 현업은 건설업 본질 이해, 표준코드 정비, 데이터 쌓기에 집중)',
     },
-    initiatives: '',
+    initiatives: '■ 데이터 인식 정확도 목표 98% 이상. 설계도면·엑셀은 아직 한계 존재(현재 약 90%).\n■ 리더 대상 AI 교육 직접 진행\n    교육 내용: AI 접근 방향성, 버티컬(도메인 특화)과 호리즌탈(공용 툴) 프레임워크 중장기 전략 중심.',
   },
 
   '롯데건설': {
@@ -1444,155 +1583,180 @@ const DEFAULT_DATA = {
     aiOverallCount: 3,
     organization: {
       aiOverall: [
-        { team: 'IT지원팀', count: 3, desc: '전략기획부 > IT지원팀 (팀장 외 담당 2인)\n※ 안전관련 AI / 스마트건설 관련 AI 조직 별도 운영' },
+        { team: 'IT지원팀', count: 3, dept1: '전략기획부', dept2: '', dept3: 'IT지원팀', desc: 'AI 관련 기획·총괄·예산 관리·교육(팀장 외 담당 2인)\n※ 안전관련 AI/스마트건설 관련 AI 조직 별도 운영' },
       ],
       ax: [
-        { team: '좌동', count: 0, desc: 'IT지원팀에서 통합 수행' },
+        { team: 'IT지원팀', count: 0, dept1: '', dept2: '', dept3: '', desc: 'IT지원팀에서 통합 수행' },
       ],
       dx: [
-        { team: '좌동', count: 0, desc: 'IT지원팀에서 통합 수행' },
+        { team: 'IT지원팀', count: 0, dept1: '', dept2: '', dept3: '', desc: 'IT지원팀에서 통합 수행' },
       ],
       it: [
-        { team: '전사 IT 시스템 기획', count: 8, desc: '' },
+        { team: 'IT지원팀', count: 5, dept1: '전략기획부', dept2: '', dept3: 'IT지원팀', desc: 'IT지원팀에서 통합 수행' },
       ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: true,  memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: false, memo: '' },
-        '기타':      { used: false, memo: '' },
+        'M365 팀즈': { used: true, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: false, memo: '' },
+        '기타': { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: false, memo: '' },
-        '그룹사개발 AI': { used: true,  memo: 'Aimember (롯데 이노베이트 개발)' },
+        '자체개발 AI': { used: false, memo: '' },
+        '그룹사개발 AI': { used: true, memo: 'AImember 외부 API 연결 그룹 플랫폼, 실무 활용도 낮음(파일 업로드 제한, 토큰 비용으로 사용 제한, 예외 요청 필요)' },
         'Copilot (유료)': { used: false, memo: '' },
-        'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: false, memo: '' },
+        'ChatGPT': { used: false, memo: '' },
+        '기타 AI': { used: false, memo: '' },
       },
-      domainAI: 'Aimember (롯데 이노베이트 개발)',
+      domainAI: '',
       externalBlock: {
         selected: '차단 O',
-        memos: { '차단 O': '필요 시 보안부서 승인 하에 해제', '차단 X': '', '차단 예정': '' },
+        memos: { '차단 O': '필요 시 보안부서 승인하에 해제', '차단 X': '', '차단 예정': '' },
       },
-      devEnv: '',
+      devEnv: '자체 GPU 보유(시민개발자 신청시 오픈),\n향후 클라우드(AWS 등) 또는 자체 GPU 확장 후 클라우드 연동 검토.',
     },
-    initiatives: '',
+    initiatives: '■ 지주사, (비용절감·업무효율화가 아닌) 매출·이익 창출 AI과제만 인정\n   PWC 컨설팅, "직원 줄이는 AI가 진짜 AI"라는 시각\n  → 과제 확산 어려움\n\n■ 내재화 방향 검토 중이나 보안 이슈, 외부 API 제한으로 구체적 방향 미확정.\n   → 현재 AI 확산보다 방향 설정이 선결 과제인 상황',
   },
 
   'GS건설': {
     revenue25: 81002,
-    aiBudget26: null,
-    aiBudgetPct: 0,
+    aiBudget26: 100,
+    aiBudgetPct: null,
     operationMode: '통합',
     aiOverallCount: 17,
+    budgetMemo: 'IT 예산 기본 약 50억원. AI 관련 과제 포함 시 약 100억원 수준으로 증가. 단, 예산 전부 집행 가능한지는 미지수',
     organization: {
       aiOverall: [
-        { team: 'CDO기획팀', count: 17, desc: 'CDO(본부) 2개 부문, 6개 팀\n> CDO기획팀 (직속팀)' },
+        { team: 'CDO기획팀', count: 17, dept1: 'CDO(Chief Data Office)', dept2: '', dept3: 'CDO기획팀', desc: 'AI 전략·기획, 데이터 기획, 교육·홍보, 변화 관리' },
       ],
       ax: [
-        { team: '플랫폼개발팀', count: 13, desc: 'CDO(본부) > 플랫폼부문(상) > 플랫폼개발팀' },
-        { team: 'TPM TF', count: 13, desc: 'CDO(본부) > 플랫폼부문(상) > TPM TF\n자체개발 AI (토탈 매니지먼트, 공정 툴 관련, 매감 결산)' },
+        { team: '플랫폼개발팀', count: 13, dept1: 'CDO', dept2: '플랫폼부문', dept3: '플랫폼개발팀', desc: '플랫폼 개발' },
+        { team: 'PMS TF', count: 13, dept1: 'CDO', dept2: '플랫폼부문', dept3: 'PMS TF', desc: '자체개발 AI(토탈 매니지먼트, 공정플랜, 마감 결산)' },
       ],
       dx: [
-        { team: 'AI COE', count: 10, desc: 'CDO(본부) > AI COE (직속팀)\nAI 혁신, PoC, 모듈' },
+        { team: 'AI COE', count: 10, dept1: 'CDO', dept2: '', dept3: 'AI COE', desc: 'AI 최신, POC, 모듈' },
       ],
       it: [
-        { team: 'IT관리팀', count: 19, desc: 'CDO(본부) > IT부문(상) > IT관리팀' },
-        { team: 'IT운영팀', count: 18, desc: 'CDO(본부) > IT부문(상) > IT운영팀' },
+        { team: 'IT관리팀', count: 19, dept1: 'CDO', dept2: 'IT부문', dept3: 'IT관리팀', desc: '레거시' },
+        { team: 'IT운영팀', count: 18, dept1: 'CDO', dept2: 'IT부문', dept3: 'IT운영팀', desc: '레거시' },
       ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: true,  memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: true,  memo: '' },
-        '기타':      { used: true,  memo: '네이버웍스' },
+        'M365 팀즈': { used: true, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: true, memo: '엔터프라이즈(4,500개)' },
+        '기타': { used: true, memo: '네이버웍스(협력사 포함 외부 소통용. 협력사 근로자 계정 부여 가능. 작업일보 제출, 안전 이슈 보고 등 현장 소통에 활용. 사고 데이터 API 연동 후 AI로 요약·대시보드화하는 기능 개발)' },
       },
       generalAI: {
-        '자체개발 AI':   { used: true,  memo: 'AI랩, 자이보이스(현장용 번역 AI)' },
-        '그룹사개발 AI': { used: true,  memo: '미소' },
-        'Copilot (유료)': { used: false, memo: '' },
-        'ChatGPT':      { used: true,  memo: '' },
-        '기타 AI':      { used: true,  memo: '노션 AI' },
+        '자체개발 AI': { used: true, memo: 'AI랩(자체서버, 보안 환경 내에서 챗봇 형태로 만들어볼 수 있는, 워크플로우 연결) 자이보이스(현장용 번역 AI)' },
+        '그룹사개발 AI': { used: true, memo: '미소(N8N·Make 같은 워크플로우 자동화)' },
+        'Copilot (유료)': { used: true, memo: '전 직원 대상 제공(일부직원 대상 Copilot Studio 까지 제공)' },
+        'ChatGPT': { used: true, memo: '엔터프라이즈(소수 인원대상)' },
+        '기타 AI': { used: true, memo: '노션 AI' },
       },
-      domainAI: '자이북 (시공·품질)\n세이프티북 (안전)\n자이플러스 (공정률)',
+      domainAI: '자이북 (시공·품질), 세이프티북 (안전), 자이플러스 (공정률)',
       externalBlock: {
         selected: '차단 O',
-        memos: { '차단 O': '공연 신청 후 사용 가능, 내부자료 가지고 진행하는 건 불가', '차단 X': '', '차단 예정': '' },
+        memos: { '차단 O': 'API 차단. ChatGPT·노션 등 접근은 관리자 레벨에서 차단(필요 시 요청 후 허용). 문서 보안 해제 후 업로드 가능.', '차단 X': '', '차단 예정': '' },
       },
-      devEnv: '',
+      devEnv: '자유롭게 만들 수 있는 환경 제공',
     },
-    initiatives: '',
+    initiatives: '■ 전사 과제 정리: 수백 개 과제를 ROI 관점에서 선별. 중복 과제 통합, 내부·외부 개발·POC 구분.\n■ AI CCTV 통합 관리\n■ 직원 AI성숙도 향상\n■ 작년 MVP 프로그램(본부별 퍼실리테이터역할, 탑다운 지정)에서 올해는 이노베이션 허브(과제 제안~개발) 체계로 전환.',
   },
 
   'SK에코플랜트': {
     revenue25: null,
-    aiBudget26: null,
+    aiBudget26: 20,
     aiBudgetPct: null,
-    operationMode: '',
-    aiOverallCount: null,
+    operationMode: '통합',
+    aiOverallCount: 13,
+    budgetMemo: 'AI 보드 팀 자체 예산 20억, 전체 인프라 포함 예산은 확인필요',
     organization: {
-      aiOverall: [{ team: '', count: 0, desc: '' }],
-      ax: [{ team: '', count: 0, desc: '' }],
-      dx: [{ team: '', count: 0, desc: '' }],
-      it: [{ team: '', count: 0, desc: '' }],
+      aiOverall: [
+        { team: 'AI Board', count: 13, dept1: 'AI혁신담당', dept2: '', dept3: 'AI Board', desc: 'AI 전략 Master Plan, 일상회, 상품화' },
+      ],
+      ax: [
+        { team: 'AI Solution', count: 11, dept1: 'AI혁신담당', dept2: '', dept3: 'AI Solution', desc: 'AI 전략과제 PM역할' },
+      ],
+      dx: [
+        { team: 'AI Tech', count: 10, dept1: 'AI혁신담당', dept2: '', dept3: 'AI Tech', desc: 'AI 기획/HR' },
+      ],
+      it: [
+        { team: 'AI Infra', count: 15, dept1: 'AI 혁신', dept2: '', dept3: 'AI Infra', desc: 'AI Infra 기획/운영' },
+      ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: false, memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: false, memo: '' },
-        '기타':      { used: false, memo: '' },
+        'M365 팀즈': { used: true, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: false, memo: '' },
+        '기타': { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: false, memo: '' },
-        '그룹사개발 AI': { used: false, memo: '' },
+        '자체개발 AI': { used: false, memo: '' },
+        '그룹사개발 AI': { used: true, memo: 'A.biz(GPT, Perplexity, Claude API 연결 가능. 파일 업로드 가능. N8N·디파이 워크플로우 자동화·에이전트 빌드 기능 포함. 실무 적극 활용)' },
         'Copilot (유료)': { used: false, memo: '' },
-        'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: false, memo: '' },
+        'ChatGPT': { used: false, memo: '' },
+        '기타 AI': { used: false, memo: '엔터프라이즈 검토 중' },
       },
-      domainAI: '',
-      externalBlock: { selected: '', memos: { '차단 O': '', '차단 X': '', '차단 예정': '' } },
-      devEnv: '',
+      domainAI: '안심(안전 플랫폼), 현장지식자산화 플랫폼, AI 업무자동화 솔루션 등',
+      externalBlock: {
+        selected: '차단 O',
+        memos: { '차단 O': '', '차단 X': '', '차단 예정': '' },
+      },
+      devEnv: '개발 대상 인력 한정, 보안 예외 및 개발환경 제공(AWS 클라우드 활용 사내 계약 서버)\nClaude API + VS Code 연동 개발 환경 구성',
     },
-    initiatives: '',
+    initiatives: '■ Data Driven Management \n- 비정형 데이터(엑셀, 설계도면) 파싱·DB화가 핵심 과제. 다양한 파싱 솔루션 POC 진행 중.\n\n■ 일상화가 올해 핵심 목표-3step\n1. 전사 AI 리터러시 교육\n- 전 직원 3,000~4,000명 직접 방문 교육 완료. 메일·동영상 아닌 직접 가서 떠먹이는 방식. 직접 팀원이 강사로 참여.\n2. VIBE 코딩 교육\n- 200명, Claude API + VS Code로 에이전트 제작.\n3. 교육 후 2~3주 AI 보드팀과 함께 상용화까지 진행 예정.\n\n[벨트 제도]\n- 그린벨트(에이전트 제작 완료), 블랙벨트(상용화). 블랙벨트에 인사 메리트 부여 예정.',
   },
 
   'DL이앤씨': {
     revenue25: 47501,
-    aiBudget26: null,
-    aiBudgetPct: null,
-    operationMode: '',
-    aiOverallCount: null,
+    aiBudget26: 4,
+    aiBudgetPct: 0.008,
+    operationMode: '개별',
+    aiOverallCount: 12,
     organization: {
-      aiOverall: [{ team: '', count: 0, desc: '' }],
-      ax: [{ team: '', count: 0, desc: '' }],
-      dx: [{ team: '', count: 0, desc: '' }],
-      it: [{ team: '', count: 0, desc: '' }],
+      aiOverall: [
+        { team: '데이터혁신', count: 4, dept1: '경영지원', dept2: 'D-IC', dept3: '데이터혁신', desc: '데이터 분석 및 Biz 문제해결' },
+        { team: '스마트건설', count: 8, dept1: '주택사업본부', dept2: '미래기술센터', dept3: '스마트건설', desc: '현업 AI Needs 취합 및 개발 기획' },
+      ],
+      ax: [
+        { team: '데이터혁신', count: 0, dept1: '', dept2: '', dept3: '', desc: '' },
+      ],
+      dx: [
+        { team: '스마트건설', count: 0, dept1: '', dept2: '', dept3: '', desc: '' },
+      ],
+      it: [
+        { team: 'IT기획', count: 10, dept1: '경영지원', dept2: 'D-IC', dept3: 'IT기획', desc: '용역발주, 라이선스, 장비 관리' },
+      ],
     },
     infrastructure: {
       collab: {
-        'M365 팀즈':  { used: false, memo: '' },
-        'Slack':     { used: false, memo: '' },
-        'Notion':    { used: false, memo: '' },
-        '기타':      { used: false, memo: '' },
+        'M365 팀즈': { used: true, memo: '' },
+        'Slack': { used: false, memo: '' },
+        'Notion': { used: false, memo: '' },
+        '기타': { used: false, memo: '' },
       },
       generalAI: {
-        '자체개발 AI':   { used: false, memo: '' },
+        '자체개발 AI': { used: false, memo: '' },
         '그룹사개발 AI': { used: false, memo: '' },
-        'Copilot (유료)': { used: false, memo: '' },
-        'ChatGPT':      { used: false, memo: '' },
-        '기타 AI':      { used: false, memo: '' },
+        'Copilot (유료)': { used: true, memo: '' },
+        'ChatGPT': { used: false, memo: '' },
+        '기타 AI': { used: false, memo: '' },
       },
-      domainAI: '',
-      externalBlock: { selected: '', memos: { '차단 O': '', '차단 X': '', '차단 예정': '' } },
-      devEnv: '',
+      domainAI: '안전 삐삐, 스마트 검측패키지, AI CCTV, GD 최적화 설계',
+      externalBlock: {
+        selected: '차단 O',
+        memos: { '차단 O': '사전 신청 후 특정 공간 내 사용 가능', '차단 X': '', '차단 예정': '' },
+      },
+      devEnv: '개발 환경·인프라·라이선스 관리 체계 등 자유 기재',
     },
-    initiatives: '',
+    initiatives: '■ AI CCTV, 비전AI, 평활도 측정 자동화,BIM 연동 엔지니어링 설계 자동화',
   },
-};
 
+};
 /* ═════════════════════════════════════════════════════════════
    State & Storage
    ═════════════════════════════════════════════════════════════ */
@@ -1602,7 +1766,7 @@ let currentCompany = COMPANIES[0];
 let currentSection = 'organization';
 
 async function loadState() {
-  // 1) Supabase에서 먼저 로드 시도
+  // 1) Supabase에서 먼저 로드
   try {
     const remote = await loadFromSupabase();
     if (remote && Object.keys(remote).length > 0) {
@@ -1613,22 +1777,10 @@ async function loadState() {
       return merged;
     }
   } catch(e) {
-    console.warn('Supabase 로드 실패, 로컬 사용:', e);
+    console.warn('Supabase 로드 실패, 기본값 사용:', e);
   }
-  // 2) 실패 시 localStorage 폴백
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return structuredClone(DEFAULT_DATA);
-    const parsed = JSON.parse(raw);
-    const merged = structuredClone(DEFAULT_DATA);
-    for (const c of COMPANIES) {
-      if (parsed[c]) merged[c] = { ...merged[c], ...parsed[c] };
-    }
-    return merged;
-  } catch(e) {
-    console.warn('로컬 로드 실패:', e);
-    return structuredClone(DEFAULT_DATA);
-  }
+  // 2) 실패시 DEFAULT_DATA 반환
+  return structuredClone(DEFAULT_DATA);
 }
 
 let saveTimer;
@@ -1638,7 +1790,7 @@ function scheduleSave() {
   saveTimer = setTimeout(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      saveToSupabase(state); // Supabase에도 저장
+      saveToSupabase(state);
       setSaving(false, true);
     } catch (e) {
       alert('저장 실패: ' + e.message);
@@ -1650,7 +1802,7 @@ function scheduleSave() {
 function manualSave() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    saveToSupabase(state); // Supabase에도 저장
+    saveToSupabase(state);
     flashSave('수동 저장 완료');
   } catch (e) {
     alert('저장 실패: ' + e.message);
