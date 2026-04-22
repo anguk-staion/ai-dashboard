@@ -1189,8 +1189,9 @@
     .section-header h2 { font-size: 20px; }
     .section-header .section-subtitle { font-size: 13px; }
 
-    .org-top-row { flex-direction: column; gap: 10px; padding: 12px 14px; }
-    .org-top-row-left { max-width: 100%; }
+    .org-top-row { flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px; }
+    .org-top-row-left { max-width: 100%; width: 100%; }
+    .org-total-sum { align-self: flex-end; }
     .custom-select-wrap { flex-wrap: wrap; gap: 6px; }
     .custom-select-desc { white-space: normal; font-size: 14px; }
     .org-total-sum { font-size: 14px; }
@@ -1276,9 +1277,11 @@
     .org-col-sub { display: none; }
 
     /* 운영방식 — 왼쪽 정렬, 설명 아래로 */
-    .custom-select-wrap { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .custom-select-wrap .select { width: 100%; min-width: unset; }
+    .org-top-row { align-items: flex-start; }
+    .custom-select-wrap { flex-direction: column; align-items: flex-start; gap: 6px; width: 100%; }
+    .custom-select-wrap .select { width: 60%; min-width: unset; }
     .custom-select-desc { white-space: normal; font-size: 13px; word-break: keep-all; color: var(--ink-3); }
+    .org-total-sum { align-self: flex-start; }
 
     /* 팀명/인원 행 */
     .team-row-top { grid-template-columns: 1fr 70px auto; }
@@ -1320,7 +1323,6 @@
     </div>
     <div class="topbar-actions">
       <span class="save-state-top"><span class="save-dot" id="saveDot"></span><span id="saveLabel">자동 저장됨</span></span>
-      <button class="btn btn-ghost-light" onclick="exportExcel()">📊 엑셀 저장</button>
       <button class="btn btn-primary" onclick="manualSave()">💾 지금 저장</button>
     </div>
   </div>
@@ -2404,52 +2406,6 @@ function removeTeam(catKey, idx) {
   renderContent();
 }
 
-function exportExcel() {
-  // CSV 형태로 만들어서 엑셀로 저장
-  const rows = [];
-  // 헤더
-  rows.push(['건설사', '운영방식', 'AI총괄팀명', 'AI총괄인원', 'AX팀명', 'AX인원', 'DX팀명', 'DX인원', 'IT팀명', 'IT인원', '25매출(억)', '26AI예산(억)', '협업툴', '일반업무AI', '도메인AI', '외부AI차단']);
-
-  for (const name of COMPANIES) {
-    const d = state[name];
-    const org = d.organization || {};
-    const inf = d.infrastructure || {};
-
-    const teamStr = (arr) => (arr||[]).map(t=>t.team).filter(Boolean).join(' / ');
-    const countStr = (arr) => (arr||[]).reduce((s,t)=>s+(Number(t.count)||0),0);
-
-    const collab = Object.entries(inf.collab||{}).filter(([,v])=>v.used).map(([k])=>k).join(', ');
-    const genAI = Object.entries(inf.generalAI||{}).filter(([,v])=>v.used).map(([k,v])=>k+(v.memo?`(${v.memo})`:``) ).join(', ');
-    const block = (inf.externalBlock||{}).selected || '';
-
-    rows.push([
-      name,
-      d.operationMode || '',
-      teamStr(org.aiOverall), countStr(org.aiOverall),
-      teamStr(org.ax), countStr(org.ax),
-      teamStr(org.dx), countStr(org.dx),
-      teamStr(org.it), countStr(org.it),
-      d.revenue25 || '',
-      d.aiBudget26 || '',
-      collab,
-      genAI,
-      inf.domainAI || '',
-      block,
-    ]);
-  }
-
-  // BOM 추가로 한글 깨짐 방지
-  const csv = '\uFEFF' + rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  const stamp = new Date().toISOString().slice(0,10);
-  a.href = url;
-  a.download = `AI협의체_동종사현황_${stamp}.csv`;
-  a.click();
-  URL.revokeObjectURL(url);
-  flashSave('엑셀 파일 저장됨');
-}
 
 function exportJSON() {
   const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
