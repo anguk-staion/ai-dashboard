@@ -962,6 +962,9 @@
     padding: 5px 8px;
     width: 100%;
     transition: all .2s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .team-affil-input:not(:placeholder-shown) {
     color: var(--ink-2);
@@ -1000,7 +1003,8 @@
     color: var(--ink-3);
     font-weight: 500;
     letter-spacing: -0.01em;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: keep-all;
   }
 
   .add-team-btn {
@@ -1206,11 +1210,11 @@
     .team-row-affil { grid-template-columns: 1fr; gap: 4px; }
     .team-affil-input {
       font-size: 13px;
-      background: #fafbfc;
+      background: #fafbfc !important;
       border: 1px solid var(--line) !important;
       border-radius: 5px;
       padding: 5px 8px;
-      white-space: normal;
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -1228,9 +1232,11 @@
     .budget-row-hint { font-size: 13px; }
     .budget-row-value .calc-value { width: 150px; font-size: 18px; }
 
-    .infra-card-head h4 { font-size: 16px; }
+    .infra-card-head { flex-wrap: wrap; gap: 6px; }
+    .infra-card-head h4 { font-size: 16px; word-break: keep-all; }
+    .infra-card-hint { font-size: 12px; word-break: keep-all; white-space: normal; }
     .infra-card-hint { font-size: 13px; }
-    .infra-card textarea { font-size: 16px; }
+    .infra-card textarea { font-size: 15px; word-break: break-all; white-space: pre-wrap; line-height: 1.6; }
     .option-row { grid-template-columns: 22px 130px 1fr; gap: 8px; padding: 8px 10px; }
     .option-row .option-label { font-size: 14px; }
     .option-row .option-memo { font-size: 13px; }
@@ -1269,9 +1275,10 @@
     .org-col-title .pill { font-size: 11px; padding: 3px 8px; }
     .org-col-sub { display: none; }
 
-    /* 운영방식 설명 줄바꿈 */
+    /* 운영방식 — 왼쪽 정렬, 설명 아래로 */
     .custom-select-wrap { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .custom-select-desc { white-space: normal; font-size: 13px; word-break: keep-all; }
+    .custom-select-wrap .select { width: 100%; min-width: unset; }
+    .custom-select-desc { white-space: normal; font-size: 13px; word-break: keep-all; color: var(--ink-3); }
 
     /* 팀명/인원 행 */
     .team-row-top { grid-template-columns: 1fr 70px auto; }
@@ -1283,7 +1290,7 @@
       background: #fafbfc !important;
       border: 1px solid var(--line) !important;
       padding: 5px 8px;
-      white-space: normal;
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
