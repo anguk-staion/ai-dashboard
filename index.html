@@ -1159,6 +1159,115 @@
     .company-tabs { grid-template-columns: repeat(4, 1fr); }
     .org-teams { grid-template-columns: 1fr; }
   }
+
+  /* ── 태블릿 ─────────────────────────────── */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+
+    .topbar-inner { padding: 10px 16px; flex-wrap: wrap; gap: 10px; }
+    .brand-title { font-size: 14px; }
+    .topbar-actions { gap: 4px; }
+    .btn { font-size: 11px; padding: 6px 9px; }
+    .save-state-top { display: none; }
+
+    .hero { padding: 16px 16px 10px; }
+    .hero-title { font-size: 22px; }
+
+    .company-tabs-wrap { padding: 0 16px; }
+    .company-tabs { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .company-tab { padding: 10px 6px; }
+    .company-tab-label { font-size: 12px; }
+
+    .section-tabs { padding: 0 16px; overflow-x: auto; white-space: nowrap; }
+    .section-tab { font-size: 13px; padding: 10px 14px; }
+
+    .content { padding: 16px 16px 80px; }
+    .section-header h2 { font-size: 20px; }
+    .section-header .section-subtitle { font-size: 13px; }
+
+    .org-top-row { flex-direction: column; gap: 10px; padding: 12px 14px; }
+    .org-top-row-left { max-width: 100%; }
+    .org-total-sum { font-size: 14px; }
+    .org-total-sum strong { font-size: 22px; }
+
+    .org-col-title { font-size: 16px; flex-wrap: wrap; gap: 4px; }
+    .org-col-sub { font-size: 13px; }
+    .org-total { font-size: 14px; }
+    .org-total strong { font-size: 16px; }
+
+    .org-teams { grid-template-columns: 1fr; padding: 10px; }
+    .team-row input.team-name { font-size: 16px; }
+    .team-count-wrap input.team-count { font-size: 16px; }
+    .team-row textarea.team-desc { font-size: 14px; }
+    .team-affil-input { font-size: 14px; }
+
+    .budget-summary { flex-wrap: wrap; gap: 8px; }
+    .summary-chip { min-width: 90px; padding: 7px 12px; }
+    .summary-chip-label { font-size: 11px; }
+    .summary-chip-value { font-size: 20px; }
+
+    .budget-row { grid-template-columns: 1fr; gap: 10px; padding: 14px 16px; }
+    .budget-row-value { justify-content: flex-end; }
+    .budget-row-value input { width: 150px; font-size: 18px; }
+    .budget-row-label { font-size: 16px; }
+    .budget-row-hint { font-size: 13px; }
+    .budget-row-value .calc-value { width: 150px; font-size: 18px; }
+
+    .infra-card-head h4 { font-size: 16px; }
+    .infra-card-hint { font-size: 13px; }
+    .infra-card textarea { font-size: 16px; }
+    .option-row { grid-template-columns: 22px 140px 1fr; gap: 8px; padding: 8px 10px; }
+    .option-row .option-label { font-size: 15px; }
+    .option-row .option-memo { font-size: 14px; }
+
+    .initiatives-wrap textarea { font-size: 16px; min-height: 200px; }
+
+    .input, .textarea, .select { font-size: 16px; }
+    .savebar { right: 16px; bottom: 16px; padding: 8px 10px; }
+
+    .card-title { font-size: 15px; }
+  }
+
+  /* ── 모바일 ─────────────────────────────── */
+  @media (max-width: 480px) {
+    body { font-size: 15px; }
+
+    .topbar-inner { padding: 8px 12px; }
+    .brand-title { font-size: 13px; }
+    .btn { font-size: 10px; padding: 5px 8px; gap: 3px; }
+
+    .hero { padding: 12px 12px 8px; }
+    .hero-title { font-size: 18px; }
+
+    .company-tabs-wrap { padding: 0 12px; }
+    .company-tabs { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+    .company-tab { padding: 8px 4px; border-radius: 7px; }
+    .company-tab-label { font-size: 11px; letter-spacing: -0.03em; }
+
+    .section-tabs { padding: 0 12px; margin-top: 14px; }
+    .section-tab { font-size: 12px; padding: 8px 10px; }
+    .section-tab-num { width: 15px; height: 15px; font-size: 9px; }
+
+    .content { padding: 12px 12px 80px; }
+    .section-header h2 { font-size: 18px; }
+
+    .org-col-head { padding: 10px 12px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .org-col-title .pill { font-size: 11px; padding: 3px 8px; }
+    .org-col-sub { display: none; }
+
+    .team-row-top { grid-template-columns: 1fr 70px auto; }
+    .team-row-affil { grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+    .team-affil-label { font-size: 8px; }
+
+    .option-row { grid-template-columns: 20px 1fr; gap: 6px; }
+    .option-row .option-memo { grid-column: 1 / -1; }
+
+    .budget-summary { justify-content: flex-start; }
+    .summary-chip { min-width: 80px; }
+
+    .savebar { left: 12px; right: 12px; bottom: 12px; border-radius: 10px; }
+    .savebar .save-state { display: none; }
+  }
 </style>
 </head>
 <body>
